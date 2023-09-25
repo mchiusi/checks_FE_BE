@@ -8,7 +8,7 @@ def convert_to_float_list(string):
     return [float(num) for num in ast.literal_eval(string)]
 
 def prepare_geometry():
-    geometry = pd.read_csv('module_MB_geometry.csv')
+    geometry = pd.read_csv('geometry/module_MB_geometry.csv')
     geometry['hex_x'] = geometry['hex_x'].apply(convert_to_float_list)
     geometry['hex_y'] = geometry['hex_y'].apply(convert_to_float_list)
     return geometry
