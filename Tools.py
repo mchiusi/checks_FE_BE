@@ -72,7 +72,7 @@ def extract_module_info_from_xml(xml_file):
         for motherboard in plane.findall(".//Motherboard"):
             for module in motherboard.findall(".//Module"):
                 data_list.append({
-                    'Plane' : int(plane_id),
+                    'plane' : int(plane_id),
                     'Module': int(module.get('id')),
                     'u': int(module.get('u')),
                     'v': int(module.get('v'))
