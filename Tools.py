@@ -4,6 +4,8 @@ import ast
 import plotly.express as px
 import plotly.graph_objects as go
 
+import xml.etree.ElementTree as ET
+
 def convert_to_float_list(string):
     return [float(num) for num in ast.literal_eval(string)]
 
@@ -59,3 +61,23 @@ def set_figure(scatter, annotations, local_plane, section):
     #if layer=='3':
     fig.write_image("layer"+layer+"_MB_60sector.pdf")
     fig.write_image("layer"+str(layer)+"_MB_60sector.png")
+
+def extract_module_info_from_xml(xml_file):
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+
+    data_list = []
+    for plane in root.findall(".//Plane"):
+        plane_id = plane.get('id')
+        for motherboard in plane.findall(".//Motherboard"):
+            for module in motherboard.findall(".//Module"):
+                data_list.append({
+                    'Plane' : int(plane_id),
+                    'Module': int(module.get('id')),
+                    'u': int(module.get('u')),
+                    'v': int(module.get('v'))
+                })
+
+    df = pd.DataFrame(data_list)
+    return df
+
