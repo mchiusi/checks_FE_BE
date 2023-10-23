@@ -1,10 +1,26 @@
 import numpy as np
 import pandas as pd
+import math
 import ast
 import plotly.express as px
 import plotly.graph_objects as go
 
 import xml.etree.ElementTree as ET
+
+def create_slices(radius, total_angle_degrees=120):
+    central_angle_degrees = total_angle_degrees / 84
+    x_coordinates = []
+    y_coordinates = []
+
+    for i in range(85):
+        angle_degrees = i * central_angle_degrees
+        angle_radians = math.radians(angle_degrees)
+        x = radius * math.cos(angle_radians)
+        y = radius * math.sin(angle_radians)
+        x_coordinates.append([0, x])
+        y_coordinates.append([0, y])
+
+    return x_coordinates, y_coordinates
 
 def convert_to_float_list(string):
     return [float(num) for num in ast.literal_eval(string)]
@@ -23,25 +39,32 @@ def colorscale(df, variable, scale):
     colorscale = ['rgb(255, 255, 255)' if value == 'rgb(48, 18, 59)' else value for value in colorscale]
     return colorscale
 
-def plot_modules(df,variable):
-    if variable=='trigLinks':
-        df['Color'] = colorscale(df, 'trigLinks', 'Viridis')
+def plot_modules(df, variable):
+    if isinstance(variable, str):
+        opacity = 1
+        df['Color'] = colorscale(df, variable, 'Viridis' if variable == 'trigLinks' else 'Turbo')
+        array_data = df[['hex_x', 'hex_y', 'Color', 'u', 'v', 'MB', 'TriggerLpGbts']].to_numpy()
     else:
-        df['Color'] = colorscale(df, 'MB', 'Turbo')
-    array_data = df[['hex_x','hex_y','Color','u','v','MB','TriggerLpGbts']].to_numpy()
+        opacity = 0.4
+        df['Color'] = ['rgb(0, 0, 255)' if value==variable else 'rgb(255, 255, 255)' for value in df['Column']]
+        array_data = df[['hex_x', 'hex_y', 'Color', 'u', 'v', 'MB']].to_numpy()
+
+    print(df[df['Column']==variable])
     listmodule = []
     annotations = []
-    for j,i in enumerate(array_data):
-        x1 = np.append(i[0],i[0][0])
-        y1 = np.append(i[1],i[1][0])
-        datum = go.Scatter(x=-x1, y=y1, mode="lines",fill='toself', fillcolor=i[2],
-                           line_color='black',marker_line_color="black",
-                           text='(u,v)=('+str(i[3])+','+str(i[4])+')'+'<br>'+' MB: '+str(i[5]))
-        listmodule.append(datum)
-        annotations.append(go.layout.Annotation(x=-sum(x1[:-1])/6, y=sum(y1[:-1])/6,
-                                    text='MB:'+str(i[5])+'<br>'+'lpGBT:'+str(int(i[6])), 
-                                    showarrow=False,font=dict(color='black')))
+
+    for i in array_data:
+        x1, y1 = np.append(i[0], i[0][0]), np.append(i[1], i[1][0])
+        text = '('+str(i[3])+','+str(i[4])+')'+'<br>'+' MB: '+str(i[5])
         
+        datum = go.Scatter(x=-x1, y=y1, mode="lines", fill='toself', fillcolor=i[2], opacity=opacity,
+                           line_color='black', marker_line_color="black", text=text)
+        listmodule.append(datum)
+        
+        x_offset, y_offset = -sum(x1[:-1])/6, sum(y1[:-1])/6
+        text = 'MB:'+str(i[5])+'<br>'+'lpGBT:'+str(int(i[6])) if isinstance(variable, str) else text
+        annotations.append(go.layout.Annotation(x=x_offset, y=y_offset, text=text, showarrow=False, font=dict(color='black')))
+    
     return listmodule, annotations
 
 def set_figure(scatter, annotations, local_plane, section):
