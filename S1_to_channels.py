@@ -9,13 +9,17 @@ pio.kaleido.scope.mathjax = None
 import Tools as tools
 
 def phi_calculator(df):
-    phi_values = np.zeros(len(df))
+    mean_x, mean_y = np.zeros(len(df)), np.zeros(len(df))
     for vertix in range(6):
-        phi_values += np.arctan2(df['hex_y'].apply(lambda y: y[vertix]), -df['hex_x'].apply(lambda x: x[vertix]))
+        mean_x += df['hex_x'].apply(lambda x: x[vertix])/6
+        mean_y += df['hex_y'].apply(lambda y: y[vertix])/6
 
-    return phi_values/6
+    return np.arctan2(mean_y, -mean_x)
 
 def extract_data(tree, geometry_file):
+    ''' takes data from the xml and adds some useful information
+        like the module id and cartesian coords and phi '''
+    
     root = tree.getroot()
     data_list = []
 
@@ -46,28 +50,27 @@ def extract_data(tree, geometry_file):
 
     return df
 
-def create_scatter_plot(df, args):
-    df_layer = {}
-    for plane in df['plane'].unique():
-        df_layer[plane] = df[df['plane'] == plane].reset_index(drop=True)
+def save_figure(fig, args):
+    if args.channel: title = "S1toChannels_channel_layer_"+str(args.layer)
+    else:            title = "S1toChannels_module_layer_" +str(args.layer)
+    title += "_sector60" if args.sector60 else "_sector120"
+    title += "_phi" if args.phi else ""
 
-    scatter_df = df_layer[args.layer] if args.layer != -1 else df
-    if not args.sector120: scatter_df = scatter_df[scatter_df['MB'] < 100].copy()
-    scatter_df['coord'] = "(" + scatter_df['u'].astype(str) + "," + scatter_df['v'].astype(str) + ")"
-    scatter_df['rank'] = scatter_df['phi'] if args.phi else scatter_df['phi'].rank(method='dense')
-    scatter_df = scatter_df.sort_values(by=['Module', 'Column'])
+    fig.write_image(title+".pdf")
+    fig.write_image(title+".png")
+    
+def plotting_frames(df, args):
+    ''' generic plotting function to create different scatter
+        plots based on the options in args '''
 
     text = "coord" if args.layer != -1 else None
-    text_size = 8 if args.sector120 else 12
-    if args.channel:
-        color = 'Channel'
-        showlegend = True
-    else:
-        color = 'coord'
-        showlegend = False
+    text_size = 12 if args.sector60 else 8
+   
+    color = 'Channel' if args.channel else 'coord' if args.module else None
+    showlegend = args.channel or (args.module and not args.layer == -1)
 
-    fig_text = px.scatter(scatter_df, y="rank", x="Column", color=color, color_discrete_sequence=px.colors.qualitative.Light24)
-    fig = px.scatter(scatter_df.drop_duplicates('Module'), y="rank", x="Column", text=text, opacity=0)
+    fig_text = px.scatter(df, y="rank", x="Column", color=color, color_discrete_sequence=px.colors.qualitative.Light24)
+    fig = px.scatter(df.drop_duplicates('Module'), y="rank", x="Column", text=text, opacity=0)
     fig.add_traces(fig_text.data)
 
     fig.update_traces(textposition='middle left', textfont=dict(size=text_size))
@@ -78,15 +81,34 @@ def create_scatter_plot(df, args):
         height=850,
         showlegend=showlegend,
         xaxis_title='Column',
-        yaxis_title='φ-ordered modules',
+        yaxis_title='φ coordinate' if args.phi else 'φ-ordered modules',
     )
-
     return fig
 
+def create_scatter_plot(df, args):
+    ''' crates a dictionary: keys == HGCAL layers,
+        values == dataframes containing frames '''
+    
+    df_layer = {}
+    for plane in df['plane'].unique():
+        df_layer[plane] = df[df['plane'] == plane].reset_index(drop=True)
+
+    scatter_df = df_layer[args.layer] if args.layer != -1 else df
+    if args.sector60: scatter_df = scatter_df[scatter_df['MB'] < 100].copy()
+    scatter_df['coord'] = "(" + scatter_df['u'].astype(str) + "," + scatter_df['v'].astype(str) + ")"
+    scatter_df['rank'] = scatter_df['phi'] if args.phi else scatter_df['phi'].rank(method='dense')
+    scatter_df = scatter_df.sort_values(by=['Module', 'Column'])
+
+    fig = plotting_frames(scatter_df, args)
+    save_figure(fig, args)
+
+
 if __name__ == "__main__":
+    ''' python S1_to_channels.py --channel --layer 11 '''
+
     parser = argparse.ArgumentParser(description="A script that chooses between --channel and --module.")
     parser.add_argument("--layer", type=int, default=3, help="Choose the layer to display, -1 means all layers")
-    parser.add_argument("--sector120", action="store_true", help="Display 60 or 120 sector")
+    parser.add_argument("--sector60",  action="store_true", help="Display 60 or 120 sector")
     parser.add_argument("--phi",       action="store_true", help="Display phi or ordered numbers")
     parser.add_argument("--channel",   action="store_true", help="Color based on the channel numeration")
     parser.add_argument("--module",    action="store_true", help="Color based on the module ids")
@@ -96,10 +118,5 @@ if __name__ == "__main__":
     geometry_file = 'xml/Geometry.xml'
 
     df = extract_data(tree, geometry_file)
-    fig = create_scatter_plot(df, args)
+    create_scatter_plot(df, args)
 
-    if args.channel: title = "S1toChannels_channel_layer_"+str(args.layer)
-    else:            title = "S1toChannels_module_layer_" +str(args.layer)
-    title += "_sector120" if args.sector120 else "_sector60"
-    fig.write_image(title+".pdf")
-    fig.write_image(title+".png")
