@@ -81,7 +81,7 @@ def set_figure(scatter, annotations, local_plane, section):
 
     fig.update_layout(annotations=annotations, showlegend=False,
                  title='Display layer '+layer)
-    #if layer=='3':
+    
     fig.write_image("layer"+layer+"_MB_60sector.pdf")
     fig.write_image("layer"+str(layer)+"_MB_60sector.png")
 
