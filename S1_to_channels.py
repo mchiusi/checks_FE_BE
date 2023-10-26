@@ -52,7 +52,8 @@ def extract_data(tree, geometry_file):
 
 def save_figure(fig, args):
     if args.channel: title = "S1toChannels_channel_layer_"+str(args.layer)
-    else:            title = "S1toChannels_module_layer_" +str(args.layer)
+    if args.module:  title = "S1toChannels_module_layer_" +str(args.layer)
+    else:            title = "S1toChannels_frame_layer_"  +str(args.layer)
     title += "_sector60" if args.sector60 else "_sector120"
     title += "_phi" if args.phi else ""
 
@@ -66,8 +67,8 @@ def plotting_frames(df, args):
     text = "coord" if args.layer != -1 else None
     text_size = 12 if args.sector60 else 8
    
-    color = 'Channel' if args.channel else 'coord' if args.module else None
-    showlegend = args.channel or (args.module and not args.layer == -1)
+    color = 'Channel' if args.channel else 'coord' if args.module else 'occurrence' if args.frame else None
+    showlegend = args.channel or (args.module and not args.layer == -1) or args.frame
 
     fig_text = px.scatter(df, y="rank", x="Column", color=color, color_discrete_sequence=px.colors.qualitative.Light24)
     fig = px.scatter(df.drop_duplicates('Module'), y="rank", x="Column", text=text, opacity=0)
@@ -76,7 +77,7 @@ def plotting_frames(df, args):
     fig.update_traces(textposition='middle left', textfont=dict(size=text_size))
     fig.update_layout(
         title_text='Layer '+str(args.layer)+', modules to columns mapping',
-        legend_title_text='Channels',
+        legend_title_text='Channels' if args.channel else 'TCs',
         width=1200,
         height=850,
         showlegend=showlegend,
@@ -93,11 +94,15 @@ def create_scatter_plot(df, args):
     for plane in df['plane'].unique():
         df_layer[plane] = df[df['plane'] == plane].reset_index(drop=True)
 
+    #for plane in df['plane'].unique():
+    #args.layer = plane
     scatter_df = df_layer[args.layer] if args.layer != -1 else df
     if args.sector60: scatter_df = scatter_df[scatter_df['MB'] < 100].copy()
     scatter_df['coord'] = "(" + scatter_df['u'].astype(str) + "," + scatter_df['v'].astype(str) + ")"
     scatter_df['rank'] = scatter_df['phi'] if args.phi else scatter_df['phi'].rank(method='dense')
+    if args.frame: scatter_df['occurrence'] = scatter_df.groupby(['Module','Column']).cumcount().add(1).mul(4).astype(str)
     scatter_df = scatter_df.sort_values(by=['Module', 'Column'])
+    scatter_df = scatter_df.drop_duplicates(['Module', 'Column'], 'last')
 
     fig = plotting_frames(scatter_df, args)
     save_figure(fig, args)
@@ -112,6 +117,7 @@ if __name__ == "__main__":
     parser.add_argument("--phi",       action="store_true", help="Display phi or ordered numbers")
     parser.add_argument("--channel",   action="store_true", help="Color based on the channel numeration")
     parser.add_argument("--module",    action="store_true", help="Color based on the module ids")
+    parser.add_argument("--frame",     action="store_true", help="Color based on the number of frames in each module x column")
     args = parser.parse_args()
 
     tree = ET.parse('xml/S1toChannels.SeparateTD.120.SingleTypes.NoSplit.xml')
