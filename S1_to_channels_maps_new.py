@@ -51,16 +51,22 @@ def create_custom_legend(fig):
     for trace in custom_legend_traces:
         fig.add_trace(trace)
 
+def define_center(df, plane):
+    x_center = sum(df['hex_x'][(df.u == 3)&(df.v == 6)].iloc[0])/6
+    if plane <= 33: y_center = sum(df['hex_y'][df['v'] == 0].iloc[0]) / 6
+    else: y_center = sum(df['hex_y'][df['v'] == 1].iloc[0]) / 6
+    return Point(-x_center,y_center)
+
 def create_slice_plot(df, layer):
     fig = go.Figure()
-    center = Point(0,0)
-    radius = df['hex_x'].apply(lambda x: -min(x)).max()
+    center = define_center(df, layer)
+    radius = df['hex_x'].apply(lambda x: -min(x)).max() + 30
     annotations = []
 
     for module in df.Module.unique():
         df_module = df[df.Module == module]
         hexagon = create_hexagon(df_module)
-        for i in range(-8,85):
+        for i in range(-10,85):
             sector = create_sector(center, math.radians(i*120/84), math.radians((i+1)*120/84), radius)
             module = hexagon.intersection(sector)
             if module.is_empty: continue
