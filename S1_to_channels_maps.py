@@ -31,9 +31,7 @@ def create_plot(df, layer):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A script that chooses between --channel and --module.")
-    parser.add_argument("--layer", type=int, default=3, help="Choose the layer to display, -1 means all layers")
     parser.add_argument("--sector120", action="store_true", help="Display 60 or 120 sector")
-    parser.add_argument("--phi",       action="store_true", help="Display phi or ordered numbers")
     args = parser.parse_args()
 
     tree = ET.parse('xml/S1toChannels.SeparateTD.120.SingleTypes.NoSplit.xml')
@@ -41,7 +39,6 @@ if __name__ == "__main__":
 
     df = extract_data(tree, geometry_file)
     for plane in df['plane'].unique():
-        plane = 35
+        print("Processing layer ", str(plane))
         df_layer = df[df['plane'] == plane].reset_index(drop=True)
         create_plot(df_layer, plane)
-        exit()

@@ -49,7 +49,6 @@ def plot_modules(df, variable):
         df['Color'] = ['rgb(0, 0, 255)' if value==variable else 'rgb(255, 255, 255)' for value in df['Column']]
         array_data = df[['hex_x', 'hex_y', 'Color', 'u', 'v', 'MB']].to_numpy()
 
-    print(df[df['Column']==variable])
     listmodule = []
     annotations = []
 
