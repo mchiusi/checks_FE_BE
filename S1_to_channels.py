@@ -5,6 +5,7 @@ import plotly.express as px
 import xml.etree.ElementTree as ET
 import plotly.io as pio   
 pio.kaleido.scope.mathjax = None
+pd.options.plotting.backend = "plotly"
 
 import Tools as tools
 
@@ -60,6 +61,13 @@ def save_figure(fig, args):
     fig.write_image(title+".pdf")
     fig.write_image(title+".png")
     
+def save_csv(df, args):
+    df = df.sort_values(by=['Module','Module_idx']).drop_duplicates(['Module'], 'last')
+    df['Module_idx'] = df['Module_idx'].astype(int) + 1
+
+    title = "frames_per_module_layer" + str(args.layer)
+    df[['plane','u','v','Module_idx']].to_csv(title+'.csv', index=False)    
+
 def plotting_frames(df, args):
     ''' generic plotting function to create different scatter
         plots based on the options in args '''
@@ -76,15 +84,30 @@ def plotting_frames(df, args):
 
     fig.update_traces(textposition='middle left', textfont=dict(size=text_size))
     fig.update_layout(
-        title_text='Layer '+str(args.layer)+', modules to columns mapping',
-        legend_title_text='Channels' if args.channel else 'TCs',
+        title_text='layer '+str(args.layer)+', modules to columns mapping',
+        legend_title_text='channels' if args.channel else 'tcs',
         width=1200,
         height=850,
         showlegend=showlegend,
-        xaxis_title='Column',
+        xaxis_title='column',
         yaxis_title='φ coordinate' if args.phi else 'φ-ordered modules',
     )
     return fig
+
+def plotting_histo(df, args):
+    fig = df['coord'].plot(kind = 'hist')
+
+    fig.update_layout(
+        title_text='layer '+str(args.layer)+', frames per module histogram',
+        width=1200,
+        height=850,
+        xaxis_title='φ-ordered module coordinates',
+        yaxis_title='frames',
+    )
+
+    save_csv(df, args)
+    return fig
+
 
 def create_scatter_plot(df, args):
     ''' crates a dictionary: keys == HGCAL layers,
@@ -101,10 +124,10 @@ def create_scatter_plot(df, args):
     scatter_df['coord'] = "(" + scatter_df['u'].astype(str) + "," + scatter_df['v'].astype(str) + ")"
     scatter_df['rank'] = scatter_df['phi'] if args.phi else scatter_df['phi'].rank(method='dense')
     if args.frame: scatter_df['occurrence'] = scatter_df.groupby(['Module','Column']).cumcount().add(1).mul(4).astype(str)
-    scatter_df = scatter_df.sort_values(by=['Module', 'Column'])
-    scatter_df = scatter_df.drop_duplicates(['Module', 'Column'], 'last')
+    if args.histo: scatter_df = scatter_df.sort_values(by=['phi'])
+    else: scatter_df = scatter_df.sort_values(by=['Module', 'Column']).drop_duplicates(['Module', 'Column'], 'last')
 
-    fig = plotting_frames(scatter_df, args)
+    fig = plotting_histo(scatter_df, args) if args.histo else plotting_frames(scatter_df, args) 
     save_figure(fig, args)
 
 
@@ -118,6 +141,7 @@ if __name__ == "__main__":
     parser.add_argument("--channel",   action="store_true", help="Color based on the channel numeration")
     parser.add_argument("--module",    action="store_true", help="Color based on the module ids")
     parser.add_argument("--frame",     action="store_true", help="Color based on the number of frames in each module x column")
+    parser.add_argument("--histo",     action="store_true", help="produce histograms")
     args = parser.parse_args()
 
     tree = ET.parse('xml/S1toChannels.SeparateTD.120.SingleTypes.NoSplit.xml')
