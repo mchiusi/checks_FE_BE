@@ -2,6 +2,7 @@ import argparse
 import shapely
 from shapely.geometry import Point, Polygon
 import math
+import numpy as np
 import plotly.graph_objects as go
 import xml.etree.ElementTree as ET
 import plotly.io as pio   
@@ -36,10 +37,10 @@ def create_sector(center, start_angle, end_angle, radius, steps=2):
     segment_vertices.append(polar_point(center, 0,0))
     return Polygon(segment_vertices)
 
-def create_hexagon(df):
+def create_hexagon(df, x_center, y_center):
     x_vertices = df['hex_x'].iloc[0]
     y_vertices = df['hex_y'].iloc[0]
-    vertices = vertices = [(-x, y) for x, y in zip(x_vertices, y_vertices)]
+    vertices = vertices = [(-x+x_center, y+y_center) for x, y in zip(x_vertices, y_vertices)]
     return Polygon(vertices)
 
 def create_custom_legend(fig):
@@ -53,34 +54,36 @@ def create_custom_legend(fig):
 
 def define_center(df, plane):
     x_center = sum(df['hex_x'][(df.u == 3)&(df.v == 6)].iloc[0])/6
-    if plane <= 33: y_center = sum(df['hex_y'][df['v'] == 0].iloc[0]) / 6
-    else: y_center = sum(df['hex_y'][df['v'] == 1].iloc[0]) / 6
-    return Point(-x_center,y_center)
+    if plane <= 32: y_center = sum(df['hex_y'][df['v'] == 0].iloc[0]) / 6
+    elif plane > 32 and plane % 2 == 1: y_center = (df['hex_y'][df['v'] == 0].iloc[0])[0]
+    else: y_center = (df['hex_y'][df['v'] == 1].iloc[0])[0]
+    return x_center, -y_center
 
 def create_slice_plot(df, layer):
     fig = go.Figure()
-    center = define_center(df, layer)
+    center = Point(0,0)
+    x_center, y_center = define_center(df, layer)
     radius = df['hex_x'].apply(lambda x: -min(x)).max() + 30
     annotations = []
 
     for module in df.Module.unique():
         df_module = df[df.Module == module]
-        hexagon = create_hexagon(df_module)
+        hexagon = create_hexagon(df_module, x_center, y_center)
         for i in range(-10,85):
             sector = create_sector(center, math.radians(i*120/84), math.radians((i+1)*120/84), radius)
             module = hexagon.intersection(sector)
-            if module.is_empty: continue
+            if module.is_empty or isinstance(module, Point): continue
             
             x, y = module.exterior.coords.xy
 
             TCs = df_module['occurrence'][df_module.Column == i]
             color = colors[int(TCs)] if not TCs.empty else 'white'
-            fig.add_trace(go.Scatter(x=list(x), y=list(y), fill="toself", fillcolor=color,
+            fig.add_trace(go.Scatter(x=np.array(x), y=np.array(y), fill="toself", fillcolor=color,
                           line=dict(color='rgba(0,0,0)', width=0.5), mode='lines', showlegend=False))
 
         module_info = df_module.iloc[0]   
         text = '('+str(module_info['u'])+','+str(module_info['v'])+')'
-        x_offset, y_offset = -sum(module_info['hex_x'])/6, sum(module_info['hex_y'])/6
+        x_offset, y_offset = -sum(module_info['hex_x'])/6+x_center, sum(module_info['hex_y'])/6+y_center
         annotations.append(go.layout.Annotation(x=x_offset, y=y_offset, text=text, showarrow=False, font=dict(color='black')))
 
     create_custom_legend(fig)
