@@ -1,6 +1,8 @@
 import xml.etree.ElementTree as ET
 import os
 
+import plotly.io as pio   
+pio.kaleido.scope.mathjax = None
 import pandas as pd
 import Tools as tools
 
@@ -63,6 +65,7 @@ geometry = tools.prepare_geometry()
 
 for region in regions:
     if region.lr =='0': continue
+    if region.plane != '8': continue
     print(f"Region ID: {region.id}, Plane: {region.plane}, LR: {region.lr}")
     MB_ids_for_region = get_MB_ids(region.id)
 
