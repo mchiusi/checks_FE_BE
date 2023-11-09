@@ -10,12 +10,9 @@ pd.options.plotting.backend = "plotly"
 import Tools as tools
 
 def phi_calculator(df):
-    mean_x, mean_y = np.zeros(len(df)), np.zeros(len(df))
-    for vertix in range(6):
-        mean_x += df['hex_x'].apply(lambda x: x[vertix])/6
-        mean_y += df['hex_y'].apply(lambda y: y[vertix])/6
-
-    return np.arctan2(mean_y, -mean_x)
+    df['x0'] = df['hex_x'].apply(np.mean)
+    df['y0'] = df['hex_y'].apply(np.mean)
+    return np.arctan2(df['y0'], df['x0'])
 
 def extract_data(tree, geometry_file):
     ''' takes data from the xml and adds some useful information
@@ -44,11 +41,7 @@ def extract_data(tree, geometry_file):
 
     df = pd.DataFrame(data_list)
     df = pd.merge(df, tools.extract_module_info_from_xml(geometry_file), on='Module', how='inner')
-
-    geometry = tools.prepare_geometry()
-    df = pd.merge(df, geometry, on=['plane', 'u', 'v'])
     df['phi'] = phi_calculator(df)
-
     return df
 
 def save_figure(fig, args):
@@ -123,7 +116,7 @@ def create_scatter_plot(df, args):
     if args.sector60: scatter_df = scatter_df[scatter_df['MB'] < 100].copy()
     scatter_df['coord'] = "(" + scatter_df['u'].astype(str) + "," + scatter_df['v'].astype(str) + ")"
     scatter_df['rank'] = scatter_df['phi'] if args.phi else scatter_df['phi'].rank(method='dense')
-    if args.frame: scatter_df['occurrence'] = scatter_df.groupby(['Module','Column']).cumcount().add(1).mul(4).astype(str)
+    if args.frame: scatter_df['occurrence'] = scatter_df.groupby(['Module','Column']).cumcount().add(1).mul(3).astype(str)
     if args.histo: scatter_df = scatter_df.sort_values(by=['phi'])
     else: scatter_df = scatter_df.sort_values(by=['Module', 'Column']).drop_duplicates(['Module', 'Column'], 'last')
 

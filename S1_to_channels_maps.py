@@ -11,19 +11,21 @@ import Tools as tools
 from S1_to_channels import extract_data
 
 def create_plot(df, layer):
-    radius = df['hex_x'].apply(lambda x: -min(x)).max()
-    x_slice, y_slice = tools.create_slices(radius)
-    
-    for column in range(84):
+    offset = -4 # including the negative columns
+    radius = df['hex_x'].apply(lambda x: max(x)).max()
+    x_slice, y_slice = tools.create_slices(radius, offset=-4)
+
+    for column in range(84+offset):
+        column = column + offset
         df = df.sort_values(by='Column', key=lambda x: x != column)
         df_layer = df.drop_duplicates('Module').copy()
         scatter, annotations = tools.plot_modules(df_layer, column)
         fig = go.Figure(scatter)
         fig.update_layout(width=1100, height=900)
         fig.update_layout(annotations=annotations, showlegend=False, title='Display layer '+str(layer)+', Column'+str(column))
-   
-        fig.add_trace(go.Scatter(x=x_slice[column],   y=y_slice[column],   mode='lines', line=dict(color='blue')))
-        fig.add_trace(go.Scatter(x=x_slice[column+1], y=y_slice[column+1], mode='lines', line=dict(color='blue')))
+  
+        fig.add_trace(go.Scatter(x=x_slice[column-offset],   y=y_slice[column-offset],   mode='lines', line=dict(color='blue')))
+        fig.add_trace(go.Scatter(x=x_slice[column-offset+1], y=y_slice[column-offset+1], mode='lines', line=dict(color='blue')))
     
         title = "S1toChannels_module_layer_" +str(layer)+"_Column"+str(column)
         fig.write_image(title+".pdf")

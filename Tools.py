@@ -22,8 +22,21 @@ def create_slices(radius, total_angle_degrees=120, offset=0):
 
     return x_coordinates, y_coordinates
 
-def convert_to_float_list(string):
-    return [float(num) for num in ast.literal_eval(string)]
+def get_MB_ids(region_id):
+    MB_ids = []
+
+    for region in regions:
+        if region.id == region_id:
+            MB_ids.extend(region.MBs.split(';'))
+    return MB_ids
+
+def extract_MB_plane_from_MBid(id):
+    id_int = int(id, 16) # hexadecimal 'id' to integer
+
+    MotherboardId = id_int & 0x1FFF  # binary: 0001 1111 1111 1111
+    PlaneId = (id_int >> 13) & 0xFFFF
+
+    return MotherboardId, PlaneId
 
 def shift_dataframe(df, x_center, y_center):
     for i in range(len(df)):
@@ -42,7 +55,12 @@ def define_center(df, plane):
     else: y_center = (df['hex_y'][df['v'] == 1].iloc[0])[0]
     return x_center, -y_center
 
-def prepare_geometry():
+def convert_to_float_list(string):
+    return [float(num) for num in ast.literal_eval(string)]
+
+def prepare_geometry_txt():
+    ''' old but working version, it reads the geometry 
+        file from Pedro's txt '''
     geometry_file = 'geometry/geometry.hgcal.txt'
     geometry_df = pd.read_csv(geometry_file,sep=' ')
 
@@ -78,7 +96,8 @@ def plot_modules(df, variable):
     annotations = []
 
     for i in array_data:
-        if i[0][5] == 0.0: x1, y1 = np.append(i[0][:-1], i[0][:1]), np.append(i[1][:-1], i[1][:1])
+        #if i[0][5] == 0.0: x1, y1 = np.append(i[0][:-1], i[0][:1]), np.append(i[1][:-1], i[1][:1])
+        if len(i[0]) < 6: x1, y1 = np.append(i[0], i[0][:1]), np.append(i[1], i[1][:1])
         else: x1, y1 = np.append(i[0], i[0][0]), np.append(i[1], i[1][0])
         text = '('+str(i[5])+','+str(i[6])+')'+'<br>'+' MB: '+str(i[7])
          
@@ -114,6 +133,7 @@ def set_figure(scatter, annotations, local_plane, section):
     fig.write_image("layer"+str(layer)+"_MB_60sector.png")
 
 def extract_module_info_from_xml(xml_file):
+    ''' geometry is read from xml geometry file '''
     tree = ET.parse(xml_file)
     root = tree.getroot()
 
@@ -125,8 +145,11 @@ def extract_module_info_from_xml(xml_file):
                 data_list.append({
                     'plane' : int(plane_id),
                     'Module': str(int(module.get('id'))),
-                    'u': int(module.get('u')),
-                    'v': int(module.get('v'))
+                    'MB'    : extract_MB_plane_from_MBid(motherboard.get('id'))[0],
+                    'u'     : int(module.get('u')),
+                    'v'     : int(module.get('v')),
+                    'hex_x' : list(float(x.split(',')[0]) for x in module.get('Vertices').split(';')),
+                    'hex_y' : list(float(x.split(',')[1]) for x in module.get('Vertices').split(';'))
                 })
 
     df = pd.DataFrame(data_list)

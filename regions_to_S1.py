@@ -29,7 +29,7 @@ def extract_plane_from_region(id):
 
 # main function
 
-region_degree = '120'
+region_degree = '60'
 
 if region_degree != '120': tree = ET.parse("xml/S1.SeparateTD.Identical60.SingleTypes.NoSplit.xml")
 else: tree = ET.parse("xml/S1.SeparateTD.120.SingleTypes.NoSplit.xml")

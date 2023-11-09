@@ -67,11 +67,11 @@ for region in regions:
     if region.lr =='0': continue
     if region.plane != '8': continue
     print(f"Region ID: {region.id}, Plane: {region.plane}, LR: {region.lr}")
-    MB_ids_for_region = get_MB_ids(region.id)
+    MB_ids_for_region = tools.get_MB_ids(region.id)
 
     df_region = pd.DataFrame(columns=['MB', 'plane', 'TriggerLpGbts'])
     for MB_id in MB_ids_for_region:
-        MB, plane = extract_MB_plane_from_MBid(MB_id)
+        MB, plane = tools.extract_MB_plane_from_MBid(MB_id)
         assert plane != region.plane, f"Planes from region and from MBs are different ({region.plane}, {plane})."
 
         df_region = df_region.append({'MB': MB, 'plane': plane, 'TriggerLpGbts' : region.TriggerLpGbts}, ignore_index=True)
