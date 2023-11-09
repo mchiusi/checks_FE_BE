@@ -22,7 +22,7 @@ def create_slices(radius, total_angle_degrees=120, offset=0):
 
     return x_coordinates, y_coordinates
 
-def get_MB_ids(region_id):
+def get_MB_ids(regions, region_id):
     MB_ids = []
 
     for region in regions:
@@ -39,7 +39,8 @@ def extract_MB_plane_from_MBid(id):
     return MotherboardId, PlaneId
 
 def colorscale(df, variable, scale):
-    norm_points = (df[variable]-df[variable].min())/(0.1+df[variable].max()-df[variable].min())
+    #norm_points = (df[variable]-df[variable].min())/(0.1+df[variable].max()-df[variable].min())
+    norm_points = (df[variable].rank()-df[variable].rank().min()) / (df[variable].rank().max()-df[variable].rank().min())
     colorscale = px.colors.sample_colorscale(scale, norm_points)
     colorscale = ['rgb(255, 255, 255)' if value == 'rgb(48, 18, 59)' else value for value in colorscale]
     return colorscale
@@ -72,12 +73,10 @@ def plot_modules(df, variable):
     
     return listmodule, annotations
 
-def set_figure(scatter, annotations, local_plane, section):
+def set_figure(scatter, annotations, local_plane, section='0'):
     layer = local_plane if section == '0' else (str(int(local_plane) + 27) if section == '1' else '999')
-    if int(layer) <= 27: return
-    print(layer) 
     fig = go.Figure(scatter)
-    fig.update_layout(width=900, height=900)
+    fig.update_layout(width=800, height=900)
 
     fig.update_layout(annotations=annotations, showlegend=False,
                  title='Display layer '+layer)
@@ -95,6 +94,7 @@ def extract_module_info_from_xml(xml_file):
         plane_id = plane.get('id')
         for motherboard in plane.findall(".//Motherboard"):
             for module in motherboard.findall(".//Module"):
+                if motherboard.get('TriggerLpGbts') == '0': continue
                 data_list.append({
                     'plane' : int(plane_id),
                     'Module': str(int(module.get('id'))),
@@ -102,9 +102,29 @@ def extract_module_info_from_xml(xml_file):
                     'u'     : int(module.get('u')),
                     'v'     : int(module.get('v')),
                     'hex_x' : list(float(x.split(',')[0]) for x in module.get('Vertices').split(';')),
-                    'hex_y' : list(float(x.split(',')[1]) for x in module.get('Vertices').split(';'))
+                    'hex_y' : list(float(x.split(',')[1]) for x in module.get('Vertices').split(';')),
+                    'TriggerLpGbts' : motherboard.get('TriggerLpGbts'),
                 })
 
     df = pd.DataFrame(data_list)
+    return df
+
+def extract_60regions_MB_from_xml(xml_file):
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+
+    regions = []
+    for region_elem in root.findall(".//Region"):
+        regions.append({
+            'section': region_elem.get("section"),
+            'plane'  : region_elem.get("plane"),
+            'lr'     : region_elem.get("lr"),
+            'MB'     : region_elem.get("Motherboards")
+        })
+
+    df = pd.DataFrame(regions)
+    df['MB'] = df['MB'].str.split(';')
+    df = df.explode('MB', ignore_index=True)
+    df['MB'] = df['MB'].apply(extract_MB_plane_from_MBid).apply(lambda x: x[0])
     return df
 
