@@ -95,7 +95,6 @@ if __name__ == "__main__":
     df = df.sort_values(by=['Module', 'Column']).drop_duplicates(['Module', 'Column'], 'last')
 
     for plane in df['plane'].unique():
-        plane = 9 
         print("Processing layer ", str(plane))
         df_layer = df[df['plane'] == plane]
         create_slice_plot(df_layer, plane)
