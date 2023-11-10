@@ -59,7 +59,7 @@ def plot_modules(df, variable):
     annotations = []
 
     for i in array_data:
-        if len(i[0]) < 6: x1, y1 = np.append(i[0], i[0][:1]), np.append(i[1], i[1][:1])
+        if len(i[0]) == 6 and i[0][5] == 0.0: x1, y1 = np.append(i[0][:-1], i[0][:-1]), np.append(i[1][:-1], i[1][:-1])
         else: x1, y1 = np.append(i[0], i[0][0]), np.append(i[1], i[1][0])
         text = '('+str(i[5])+','+str(i[6])+')'+'<br>'+' MB: '+str(i[7])
          
@@ -67,7 +67,7 @@ def plot_modules(df, variable):
                            line_color='black', marker_line_color="black", text=text)
         listmodule.append(datum)
         
-        x_offset, y_offset = i[2], i[3]
+        x_offset, y_offset = (np.mean(x1), np.mean(y1)) if len(i[0]) == 6 and i[0][5] == 0.0 else (i[2], i[3])
         text = 'MB:'+str(i[7])+'<br>'+'lpGBT:'+str(int(i[8])) if isinstance(variable, str) else text
         annotations.append(go.layout.Annotation(x=x_offset, y=y_offset, text=text, showarrow=False, font=dict(color='black')))
     
@@ -130,3 +130,13 @@ def extract_60regions_MB_from_xml(xml_file):
     df['MB'] = df['MB'].apply(extract_MB_plane_from_MBid).apply(lambda x: x[0])
     return df
 
+def prepare_geometry_txt():
+    ''' old but working version, it reads the geometry 
+        file from Pedro's txt '''
+    geometry_file = 'geometries/v15.3/geometry.hgcal.txt'
+    geometry_df = pd.read_csv(geometry_file,sep=' ')
+
+    geometry_df['hex_x'] = geometry_df[['vx_0','vx_1','vx_2','vx_3','vx_4','vx_5']].apply(list, axis=1)
+    geometry_df['hex_y'] = geometry_df[['vy_0','vy_1','vy_2','vy_3','vy_4','vy_5']].apply(list, axis=1)
+    
+    return geometry_df[['plane','u','v','MB','x0','y0','hex_x','hex_y','trigLinks']]
