@@ -55,7 +55,7 @@ def create_custom_legend(fig):
 def create_slice_plot(df, layer):
     fig = go.Figure()
     center = Point(0,0)
-    radius = df['hex_x'].apply(lambda x: max(x)).max() + 30
+    radius = df['hex_x'].apply(lambda x: max(x)).max() + 300
     annotations = []
 
     for module in df.Module.unique():

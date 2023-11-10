@@ -15,13 +15,12 @@ geometry['y0'] = geometry['hex_y'].apply(np.mean)
 
 if not args.sector120:
     regions = tools.extract_60regions_MB_from_xml("xml/Regions.60.NoSplit.xml")
-    df = pd.merge(geometry, regions[regions.lr==0], on='MB', how='inner')
+    geometry = pd.merge(geometry, regions[regions.lr=='1'], on=['MB','plane'], how='inner')
 
 for plane in geometry.plane.unique():
     print("Processing layer ", plane)
 
     df_layer = geometry[geometry.plane == plane].copy()
-    df_layer = df_layer[df_layer.MB < 100].copy()
     scatter, annotations = tools.plot_modules(df_layer, 'MB')
     tools.set_figure(scatter, annotations, str(plane))
 

@@ -91,12 +91,12 @@ def extract_module_info_from_xml(xml_file):
 
     data_list = []
     for plane in root.findall(".//Plane"):
-        plane_id = plane.get('id')
+        plane_id = int(plane.get('id'))
+        if plane_id%2 ==0 and plane_id < 27: continue
         for motherboard in plane.findall(".//Motherboard"):
             for module in motherboard.findall(".//Module"):
-                if motherboard.get('TriggerLpGbts') == '0': continue
                 data_list.append({
-                    'plane' : int(plane_id),
+                    'plane' : plane_id,
                     'Module': str(int(module.get('id'))),
                     'MB'    : extract_MB_plane_from_MBid(motherboard.get('id'))[0],
                     'u'     : int(module.get('u')),
@@ -115,9 +115,11 @@ def extract_60regions_MB_from_xml(xml_file):
 
     regions = []
     for region_elem in root.findall(".//Region"):
+        section = region_elem.get("section")
+        local_plane = region_elem.get("plane")
         regions.append({
             'section': region_elem.get("section"),
-            'plane'  : region_elem.get("plane"),
+            'plane'  : int(local_plane) if section == '0' else (int(local_plane) + 27 if section == '1' else 999),
             'lr'     : region_elem.get("lr"),
             'MB'     : region_elem.get("Motherboards")
         })
