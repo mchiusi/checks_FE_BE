@@ -11,10 +11,10 @@ pio.kaleido.scope.mathjax = None
 import Tools as tools
 from S1_to_channels import extract_data
 
-colors = {0  : 'grey',
-          3  : 'cornflowerblue',
-          6  : 'orange',
-          9 : 'yellow'}
+colors = {0  : 'white',
+          1  : 'cornflowerblue',
+          2  : 'orange',
+          3 : 'yellow'}
  
 def create_sector(center, start_angle, end_angle, radius, steps=2):
     def polar_point(origin_point, angle,  distance):
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     geometry_file = 'xml/Geometry.xml'
     df = extract_data(tree, geometry_file)
 
-    df['occurrence'] = df.groupby(['Module','Column']).cumcount().add(1).mul(3).astype(str)
+    df['occurrence'] = df.groupby(['Module','Column']).cumcount().add(1).astype(str)
     df = df.sort_values(by=['Module', 'Column']).drop_duplicates(['Module', 'Column'], 'last')
 
     for plane in df['plane'].unique():
