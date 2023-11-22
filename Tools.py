@@ -4,8 +4,77 @@ import math
 import ast
 import plotly.express as px
 import plotly.graph_objects as go
+import shapely
+from shapely.geometry import Point, Polygon
 
 import xml.etree.ElementTree as ET
+
+colors = {0  : 'white',
+          1  : 'cornflowerblue',
+          2  : 'orange',
+          3 : 'yellow'}
+
+def create_sector(center, start_angle, end_angle, radius, steps=2):
+    def polar_point(origin_point, angle,  distance):
+        return [origin_point.x + math.cos(angle) * distance, origin_point.y + math.sin(angle) * distance]
+
+    if start_angle > end_angle:
+        start_angle = start_angle - 2*math.pi
+    else:
+        pass
+    step_angle_width = (end_angle-start_angle) / steps
+    sector_width = (end_angle-start_angle) 
+    segment_vertices = []
+
+    segment_vertices.append(polar_point(center, 0,0))
+    segment_vertices.append(polar_point(center, start_angle,radius))
+
+    for z in range(1, steps):
+        segment_vertices.append((polar_point(center, start_angle + z * step_angle_width,radius)))
+    segment_vertices.append(polar_point(center, start_angle+sector_width,radius))
+    segment_vertices.append(polar_point(center, 0,0))
+    return Polygon(segment_vertices)
+
+def create_hexagon(df):
+    x_vertices = df['hex_x'].iloc[0]
+    y_vertices = df['hex_y'].iloc[0]
+    vertices = vertices = [(x, y) for x, y in zip(x_vertices, y_vertices)]
+    return Polygon(vertices)
+
+def phi_calculator(df):
+    df['x0'] = df['hex_x'].apply(np.mean)
+    df['y0'] = df['hex_y'].apply(np.mean)
+    return np.arctan2(df['y0'], df['x0'])
+
+def extract_data(tree, geometry_file):
+    ''' takes data from the xml and adds some useful information
+        like the module id and cartesian coords and phi '''
+    
+    root = tree.getroot()
+    data_list = []
+
+    for s1 in root.findall('.//S1'):
+        for channel in s1.findall('.//Channel'):
+            for frame in channel.findall('.//Frame'):
+                module = frame.get('Module')
+                if module is not None:
+                    module = int(module)
+                else:
+                    continue
+                data_list.append({
+                    'Module': str(int(frame.get('Module'))),
+                    'Module_idx': frame.get('index'),
+                    'Column': int(frame.get('column')),
+                    'Frame': frame.get('id'),
+                    'S1': s1.get('id'),
+                    'Channel': channel.get('id'),
+                    'Frame': frame.get('id'),
+                })
+
+    df = pd.DataFrame(data_list)
+    df = pd.merge(df, extract_module_info_from_xml(geometry_file), on='Module', how='inner')
+    df['phi'] = phi_calculator(df)
+    return df
 
 def create_slices(radius, total_angle_degrees=120, offset=0):
     central_angle_degrees = total_angle_degrees / 84
@@ -140,3 +209,21 @@ def prepare_geometry_txt():
     geometry_df['hex_y'] = geometry_df[['vy_0','vy_1','vy_2','vy_3','vy_4','vy_5']].apply(list, axis=1)
     
     return geometry_df[['plane','u','v','MB','x0','y0','hex_x','hex_y','trigLinks']]
+
+def save_figure(fig, layer, args):
+    if args.channel: title = "S1toChannels_channel_layer_"+str(layer)
+    if args.module:  title = "S1toChannels_module_layer_" +str(layer)
+    else:            title = "S1toChannels_frame_layer_"  +str(layer)
+    title += "_sector60" if args.sector60 else "_sector120"
+    title += "_phi" if args.phi else ""
+
+    fig.write_image(title+".pdf")
+    fig.write_image(title+".png")
+    
+def save_csv(df, layer, args):
+    df = df.sort_values(by=['Module','Module_idx']).drop_duplicates(['Module'], 'last')
+    df['Module_idx'] = df['Module_idx'].astype(int) + 1
+
+    title = "frames_per_module_layer" + str(layer)
+    df[['plane','u','v','Module_idx']].to_csv(title+'.csv', index=False)    
+
