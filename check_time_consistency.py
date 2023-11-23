@@ -39,7 +39,7 @@ def create_scatter_plot(df):
 
 
 if __name__ == "__main__":
-    ''' python S1_to_channels.py --channel --layer 11 '''
+    ''' python check_time_consistency.py '''
 
     tree = ET.parse('xml/S1toChannels.SeparateTD.Identical60.SingleTypes.NoSplit.xml')
     geometry_file = 'xml/Geometry.xml'
