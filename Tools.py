@@ -65,10 +65,9 @@ def extract_data(tree, geometry_file):
                     'Module': str(int(frame.get('Module'))),
                     'Module_idx': frame.get('index'),
                     'Column': int(frame.get('column')),
-                    'Frame': frame.get('id'),
+                    'Frame':  int(frame.get('id')),
                     'S1': s1.get('id'),
                     'Channel': channel.get('id'),
-                    'Frame': frame.get('id'),
                 })
 
     df = pd.DataFrame(data_list)
@@ -213,7 +212,9 @@ def prepare_geometry_txt():
 def save_figure(fig, layer, args):
     if args.channel: title = "S1toChannels_channel_layer_"+str(layer)
     if args.module:  title = "S1toChannels_module_layer_" +str(layer)
-    else:            title = "S1toChannels_frame_layer_"  +str(layer)
+    if args.frame:   title = "S1toChannels_frame_layer_"  +str(layer)
+    if args.fpga:    title = "Channel_allocation_device_" +str(layer)
+    if args.column:  title = "Channel_allocation_column_" +str(layer)
     title += "_sector60" if args.sector60 else "_sector120"
     title += "_phi" if args.phi else ""
 
