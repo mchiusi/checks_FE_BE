@@ -35,6 +35,7 @@ def plotting_frames(df, layer, args):
         xaxis_title='column',
         yaxis_title='φ coordinate' if args.phi else 'φ-ordered modules',
     )
+    tools.save_figure(fig, layer, args)
     return fig
 
 def plotting_histo(df, layer, args):
@@ -48,8 +49,10 @@ def plotting_histo(df, layer, args):
         yaxis_title='frames',
     )
 
+    title = "Histogram_frame_column_layer_" +str(layer)
+    fig.write_image(title+".pdf")
+    fig.write_image(title+".png")
     tools.save_csv(df, layer, args)
-    return fig
 
 def create_maps(df, layer):
     offset = -4 # including the negative columns
@@ -82,8 +85,7 @@ def create_scatter_plot(scatter_df, layer, args):
     if args.histo: scatter_df = scatter_df.sort_values(by=['phi'])
     else: scatter_df = scatter_df.sort_values(by=['Module', 'Column']).drop_duplicates(['Module', 'Column'], 'last')
 
-    fig = plotting_histo(scatter_df, layer, args) if args.histo else plotting_frames(scatter_df, layer, args) 
-    tools.save_figure(fig, layer, args)
+    plotting_histo(scatter_df, layer, args) if args.histo else plotting_frames(scatter_df, layer, args) 
 
 def create_custom_legend(fig):
     custom_legend_traces = [
@@ -135,15 +137,15 @@ def create_plot(df, args):
         print("Processing layer ", str(plane))
         df_layer[plane] = df[df['plane'] == plane].reset_index(drop=True)
 
-        if args.scatter:     create_scatter_plot(df_layer[plane], plane, args)
-        if args.module_maps: create_maps(df_layer[plane], plane)
-        if args.frame_maps:  create_slice_plot(df_layer[plane], plane)
+        if args.scatter or args.histo: create_scatter_plot(df_layer[plane], plane, args)
+        if args.module_maps:           create_maps(df_layer[plane], plane)
+        if args.frame_maps:            create_slice_plot(df_layer[plane], plane)
 
 if __name__ == "__main__":
-    ''' python S1_to_channels.py '''
+    ''' python S1_to_channels.py --scatter'''
 
     parser = argparse.ArgumentParser(description="A script that chooses between --channel and --module.")
-    parser.add_argument("--scatter",     action="store_true", help="Create scatter plots phi vs columns. Each marker is a frame", default=True)
+    parser.add_argument("--scatter",     action="store_true", help="Create scatter plots phi vs columns. Each marker is a frame")
     parser.add_argument("--module_maps", action="store_true", help="Create HGCAL maps per layer and per columns highliting modules selected")
     parser.add_argument("--frame_maps",  action="store_true", help="Create HGCAL maps per layer showing the frames")
     parser.add_argument("--sector60",    action="store_true", help="Display 60 or 120 sector")

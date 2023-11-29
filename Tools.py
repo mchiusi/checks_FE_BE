@@ -213,8 +213,6 @@ def save_figure(fig, layer, args):
     if args.channel: title = "S1toChannels_channel_layer_"+str(layer)
     if args.module:  title = "S1toChannels_module_layer_" +str(layer)
     if args.frame:   title = "S1toChannels_frame_layer_"  +str(layer)
-    if args.fpga:    title = "Channel_allocation_device_" +str(layer)
-    if args.column:  title = "Channel_allocation_column_" +str(layer)
     title += "_sector60" if args.sector60 else "_sector120"
     title += "_phi" if args.phi else ""
 
@@ -227,4 +225,3 @@ def save_csv(df, layer, args):
 
     title = "frames_per_module_layer" + str(layer)
     df[['plane','u','v','Module_idx']].to_csv(title+'.csv', index=False)    
-
