@@ -14,6 +14,68 @@ colors = {0  : 'white',
           2  : 'orange',
           3 : 'yellow'}
 
+# Define a class to represent the Region objects
+class Region:
+    def __init__(self, id, section, plane, ud, lr, TriggerLpGbts, DaqLpGbts, DaqRate, TCcount, Motherboards):
+        self.id = id
+        self.section = section
+        self.plane = plane
+        self.ud = ud
+        self.lr = lr
+        self.TriggerLpGbts = TriggerLpGbts
+        self.DaqLpGbts = DaqLpGbts
+        self.DaqRate = DaqRate
+        self.TCcount = TCcount
+        self.MBs = Motherboards
+
+def read_regions_xml_file():
+    # Parse the XML file content
+    tree = ET.parse("../xml/Regions.120.NoSplit.xml")
+    root = tree.getroot()
+
+    # Create Region objects for each Region element
+    regions = []
+    for region_elem in root.findall(".//Region"):
+        id = region_elem.get("id")
+        section = region_elem.get("section")
+        plane = region_elem.get("plane")
+        ud = region_elem.get("ud")
+        lr = region_elem.get("lr")
+        TriggerLpGbts = region_elem.get("TriggerLpGbts")
+        DaqLpGbts = region_elem.get("DaqLpGbts")
+        DaqRate = region_elem.get("DaqRate")
+        TCcount = region_elem.get("TCcount")
+        Motherboards = region_elem.get("Motherboards")
+
+        region = Region(id, section, plane, ud, lr, TriggerLpGbts, DaqLpGbts, DaqRate, TCcount, Motherboards)
+        regions.append(region)
+    return regions
+
+def get_modules_per_S1(regions):
+    all_regions = read_regions_xml_file()
+    geometry_file = '../xml/Geometry.xml'
+    geometry = extract_module_info_from_xml(geometry_file)
+
+    modules = 0
+    for region in regions:
+        #if region.lr =='0': continue
+        print(f"Region ID: {region}")
+        MB_ids_for_region = get_MB_ids(all_regions, region)
+
+        df_region = pd.DataFrame(columns=['MB', 'plane', 'TriggerLpGbts'])
+        for MB_id in MB_ids_for_region:
+            MB, plane = extract_MB_plane_from_MBid(MB_id)
+            # assert plane != region.plane, f"Planes from region and from MBs are different ({region.plane}, {plane})."
+
+            df_region = df_region.append({'MB': MB, 'plane': plane}, ignore_index=True)
+
+        modmap_region = pd.merge(df_region, geometry, on=['plane', 'MB'])
+        modules += modmap_region.shape[0]
+
+    return modules
+#    scatter, annotations = plot_modules(modmap_region, 'MB')
+#    set_figure(scatter, annotations, region.plane, region.section)
+
 def create_sector(center, start_angle, end_angle, radius, steps=2):
     def polar_point(origin_point, angle,  distance):
         return [origin_point.x + math.cos(angle) * distance, origin_point.y + math.sin(angle) * distance]
@@ -90,12 +152,11 @@ def create_slices(radius, total_angle_degrees=120, offset=0):
 
     return x_coordinates, y_coordinates
 
-def get_MB_ids(regions, region_id):
+def get_MB_ids(regions, region):
     MB_ids = []
 
-    for region in regions:
-        if region.id == region_id:
-            MB_ids.extend(region.MBs.split(';'))
+    region_class = [_region for _region in regions if _region.id == region][0]
+    MB_ids.extend(region_class.MBs.split(';'))
     return MB_ids
 
 def extract_MB_plane_from_MBid(id):
