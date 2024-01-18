@@ -62,13 +62,13 @@ def get_modules_per_S1(regions):
         print(f"Region ID: {region}")
         MB_ids_for_region = get_MB_ids(all_regions, region)
 
-        df_region = pd.DataFrame(columns=['MB', 'plane', 'TriggerLpGbts'])
+        df_region = pd.DataFrame(columns=['MB', 'plane'])
         for MB_id in MB_ids_for_region:
             MB, plane = extract_MB_plane_from_MBid(MB_id)
             # assert plane != region.plane, f"Planes from region and from MBs are different ({region.plane}, {plane})."
 
             df_region = df_region.append({'MB': MB, 'plane': plane}, ignore_index=True)
-
+     
         modmap_region = pd.merge(df_region, geometry, on=['plane', 'MB'])
         modules += modmap_region.shape[0]
 
@@ -113,27 +113,43 @@ def extract_data(tree, geometry_file):
         like the module id and cartesian coords and phi '''
     
     root = tree.getroot()
-    data_list = []
+    data_list_si = []
+    data_list_sci = []
 
+    # reading the xml configuration file
     for s1 in root.findall('.//S1'):
         for channel in s1.findall('.//Channel'):
             for frame in channel.findall('.//Frame'):
                 module = frame.get('Module')
-                if module is not None:
-                    module = int(module)
+                MB = frame.get('Motherboard')
+                if module:
+                    data_list_si.append({
+                        'Module': str(int(frame.get('Module'))),
+                        'idx': frame.get('index'),
+                        'Column': int(frame.get('column')),
+                        'Frame':  int(frame.get('id')),
+                        'S1': s1.get('id'),
+                        'Channel': channel.get('id'),
+                    })
+                if MB:
+                    data_list_sci.append({
+                        'MB': int(frame.get('Motherboard'),16),
+                        'idx': frame.get('index'),
+                        'Column': int(frame.get('column')),
+                        'Frame':  int(frame.get('id')),
+                        'S1': s1.get('id'),
+                        'Channel': channel.get('id'),
+                    })
                 else:
-                    continue
-                data_list.append({
-                    'Module': str(int(frame.get('Module'))),
-                    'Module_idx': frame.get('index'),
-                    'Column': int(frame.get('column')),
-                    'Frame':  int(frame.get('id')),
-                    'S1': s1.get('id'),
-                    'Channel': channel.get('id'),
-                })
+                    continue 
 
-    df = pd.DataFrame(data_list)
-    df = pd.merge(df, extract_module_info_from_xml(geometry_file), on='Module', how='inner')
+    # adding additional information using geometry xml
+    geometry = extract_module_info_from_xml(geometry_file)
+   
+    df_si  = pd.merge(pd.DataFrame(data_list_si),  geometry, on='Module', how='inner')
+    df_sci = pd.merge(pd.DataFrame(data_list_sci), geometry, on='MB', how='inner')
+    
+    df = pd.concat([df_si, df_sci])
     df['phi'] = phi_calculator(df)
     return df
 
@@ -221,13 +237,13 @@ def extract_module_info_from_xml(xml_file):
     data_list = []
     for plane in root.findall(".//Plane"):
         plane_id = int(plane.get('id'))
-        if plane_id%2 ==0 and plane_id < 27: continue
+        if plane_id%2==0 and plane_id < 27: continue
         for motherboard in plane.findall(".//Motherboard"):
             for module in motherboard.findall(".//Module"):
                 data_list.append({
                     'plane' : plane_id,
                     'Module': str(int(module.get('id'))),
-                    'MB'    : extract_MB_plane_from_MBid(motherboard.get('id'))[0],
+                    'MB'    : int(motherboard.get('id'),16), #extract_MB_plane_from_MBid(motherboard.get('id'))[0],
                     'u'     : int(module.get('u')),
                     'v'     : int(module.get('v')),
                     'hex_x' : list(float(x.split(',')[0]) for x in module.get('Vertices').split(';')),
@@ -262,7 +278,7 @@ def extract_60regions_MB_from_xml(xml_file):
 def prepare_geometry_txt():
     ''' old but working version, it reads the geometry 
         file from Pedro's txt '''
-    geometry_file = 'geometries/v15.3/geometry.hgcal.txt'
+    geometry_file = 'geometries/v15.3/geometry.15.3.txt'
     geometry_df = pd.read_csv(geometry_file,sep=' ')
 
     geometry_df['hex_x'] = geometry_df[['vx_0','vx_1','vx_2','vx_3','vx_4','vx_5']].apply(list, axis=1)

@@ -30,8 +30,9 @@ def extract_plane_from_region(id):
 # main function
 
 region_degree = '120'
+scenario = 'S1.SeparateTD.Identical60.SingleTypes.NoSplit.xml'
 
-if region_degree != '120': tree = ET.parse("xml/S1.SeparateTD.Identical60.SingleTypes.NoSplit.xml")
+if region_degree != '120': tree = ET.parse("xml/"+scenario)
 else: tree = ET.parse("xml/S1.SeparateTD.120.MixedTypes.NoSplit.xml")
 root = tree.getroot()
 
@@ -59,7 +60,8 @@ if region_degree != '120':
     fig2 = px.scatter(df_S1[df_S1.lr<=0.1], x='plane', y='lr', color='S1', symbol='S1', title='60 regions to S1 FPGA Mapping', width=840)
     fig.add_traces(fig2.data)
 else:
-    fig = px.scatter(df_S1, x='plane', y='lr', color='S1', symbol='S1', title='120 regions to S1 FPGA Mapping', width=840)
+    fig = px.scatter(df_S1, x='plane', y='lr', color='S1', color_discrete_sequence=px.colors.qualitative.Dark24,
+                     symbol='S1', title=scenario, width=840)
 
 
 fig.update_traces(marker=dict(size=12, opacity=0.7), selector=dict(mode='markers'))

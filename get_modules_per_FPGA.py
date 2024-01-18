@@ -47,8 +47,8 @@ for S1_FPGA in root.findall(".//S1"):
     regions = []
     regions.extend(S1_regions.split(';'))
     
-    modules = tools.get_modules_per_S1(regions)  
+    modules = tools.get_modules_per_S1(regions) 
     df_S1 = df_S1.append({'S1': id_S1, 'modules': modules}, ignore_index=True)
 
 print(df_S1)
-df_S1.to_excel("modules_per_S1.xlsx")
+df_S1.to_excel("xlsx/modules_per_S1.xlsx")
