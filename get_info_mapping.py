@@ -17,5 +17,7 @@ col_per_module.to_excel("xlsx/cols_per_module.xlsx", index=False)
 
 # number of TCs per columns
 df = df.rename(columns={'Frame':'TC_per_cols'})
-tc_per_column = df[['TC_per_cols', 'Column', 'S1']].groupby(['S1','Column'])['TC_per_cols'].nunique().mul(3)
-tc_per_column.to_excel("xlsx/tc_per_column.xlsx")
+tc_per_column = df[['TC_per_cols', 'Column', 'Module', 'S1']].groupby(['Column','Module','S1'])['TC_per_cols'].nunique().mul(3)
+tc_per_column.to_excel("xlsx/tc_per_column_mod_S1.xlsx")
+
+
