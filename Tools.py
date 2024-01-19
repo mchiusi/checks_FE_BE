@@ -125,7 +125,7 @@ def extract_data(tree, geometry_file):
                 if module:
                     data_list_si.append({
                         'Module': str(int(frame.get('Module'))),
-                        'idx': frame.get('index'),
+                        'idx': int(frame.get('index')),
                         'Column': int(frame.get('column')),
                         'Frame':  int(frame.get('id')),
                         'S1': s1.get('id'),
@@ -134,7 +134,7 @@ def extract_data(tree, geometry_file):
                 if MB:
                     data_list_sci.append({
                         'MB': int(frame.get('Motherboard'),16),
-                        'idx': frame.get('index'),
+                        'idx': int(frame.get('index')),
                         'Column': int(frame.get('column')),
                         'Frame':  int(frame.get('id')),
                         'S1': s1.get('id'),
