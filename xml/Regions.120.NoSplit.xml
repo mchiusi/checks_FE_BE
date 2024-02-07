@@ -1,63 +1,1298 @@
-<Regions id="xml/Regions.120.NoSplit.xml" Geometry="xml/Geometry.xml">
-	<Region id="0x004" section="0" plane="1" ud="0" lr="0" TriggerLpGbts="56" DaqLpGbts="30" DaqRate="104.26" TCcount="384" Motherboards="0x02000;0x02001;0x02002;0x02003;0x02004;0x02005;0x02006;0x02007;0x02008;0x02009;0x0200A;0x0200B;0x02064;0x02065;0x02066;0x02067;0x02068;0x02069;0x0206A;0x0206B;0x0206C;0x0206D;0x0206E;0x0206F" />
-	<Region id="0x00C" section="0" plane="3" ud="0" lr="0" TriggerLpGbts="70" DaqLpGbts="34" DaqRate="122.06" TCcount="384" Motherboards="0x06000;0x06001;0x06002;0x06003;0x06004;0x06005;0x06006;0x06007;0x06008;0x06009;0x0600A;0x0600B;0x0600C;0x0600D;0x06064;0x06065;0x06066;0x06067;0x06068;0x06069;0x0606A;0x0606B;0x0606C;0x0606D;0x0606E;0x0606F;0x06070;0x06071" />
-	<Region id="0x014" section="0" plane="5" ud="0" lr="0" TriggerLpGbts="68" DaqLpGbts="32" DaqRate="119.36" TCcount="384" Motherboards="0x0A000;0x0A001;0x0A002;0x0A003;0x0A004;0x0A005;0x0A006;0x0A007;0x0A008;0x0A009;0x0A00A;0x0A00B;0x0A00C;0x0A064;0x0A065;0x0A066;0x0A067;0x0A068;0x0A069;0x0A06A;0x0A06B;0x0A06C;0x0A06D;0x0A06E;0x0A06F;0x0A070" />
-	<Region id="0x01C" section="0" plane="7" ud="0" lr="0" TriggerLpGbts="64" DaqLpGbts="32" DaqRate="108.48" TCcount="752" Motherboards="0x0E000;0x0E001;0x0E002;0x0E003;0x0E004;0x0E005;0x0E006;0x0E007;0x0E008;0x0E009;0x0E00A;0x0E00B;0x0E00C;0x0E064;0x0E065;0x0E066;0x0E067;0x0E068;0x0E069;0x0E06A;0x0E06B;0x0E06C;0x0E06D;0x0E06E;0x0E06F;0x0E070" />
-	<Region id="0x024" section="0" plane="9" ud="0" lr="0" TriggerLpGbts="64" DaqLpGbts="34" DaqRate="97.94" TCcount="786" Motherboards="0x12000;0x12001;0x12002;0x12003;0x12004;0x12005;0x12006;0x12007;0x12008;0x12009;0x1200A;0x1200B;0x1200C;0x1200D;0x12064;0x12065;0x12066;0x12067;0x12068;0x12069;0x1206A;0x1206B;0x1206C;0x1206D;0x1206E;0x1206F;0x12070;0x12071" />
-	<Region id="0x02C" section="0" plane="11" ud="0" lr="0" TriggerLpGbts="60" DaqLpGbts="34" DaqRate="87.09" TCcount="786" Motherboards="0x16000;0x16001;0x16002;0x16003;0x16004;0x16005;0x16006;0x16007;0x16008;0x16009;0x1600A;0x1600B;0x1600C;0x1600D;0x16064;0x16065;0x16066;0x16067;0x16068;0x16069;0x1606A;0x1606B;0x1606C;0x1606D;0x1606E;0x1606F;0x16070;0x16071" />
-	<Region id="0x034" section="0" plane="13" ud="0" lr="0" TriggerLpGbts="58" DaqLpGbts="32" DaqRate="79.11" TCcount="786" Motherboards="0x1A000;0x1A001;0x1A002;0x1A003;0x1A004;0x1A005;0x1A006;0x1A007;0x1A008;0x1A009;0x1A00A;0x1A00B;0x1A00C;0x1A00D;0x1A064;0x1A065;0x1A066;0x1A067;0x1A068;0x1A069;0x1A06A;0x1A06B;0x1A06C;0x1A06D;0x1A06E;0x1A06F;0x1A070;0x1A071" />
-	<Region id="0x03C" section="0" plane="15" ud="0" lr="0" TriggerLpGbts="46" DaqLpGbts="26" DaqRate="73.59" TCcount="408" Motherboards="0x1E000;0x1E001;0x1E002;0x1E003;0x1E004;0x1E005;0x1E006;0x1E007;0x1E008;0x1E009;0x1E00A;0x1E00B;0x1E064;0x1E065;0x1E066;0x1E067;0x1E068;0x1E069;0x1E06A;0x1E06B;0x1E06C;0x1E06D;0x1E06E;0x1E06F" />
-	<Region id="0x044" section="0" plane="17" ud="0" lr="0" TriggerLpGbts="46" DaqLpGbts="26" DaqRate="69.66" TCcount="408" Motherboards="0x22000;0x22001;0x22002;0x22003;0x22004;0x22005;0x22006;0x22007;0x22008;0x22009;0x2200A;0x2200B;0x22064;0x22065;0x22066;0x22067;0x22068;0x22069;0x2206A;0x2206B;0x2206C;0x2206D;0x2206E;0x2206F" />
-	<Region id="0x04C" section="0" plane="19" ud="0" lr="0" TriggerLpGbts="44" DaqLpGbts="26" DaqRate="66.38" TCcount="408" Motherboards="0x26000;0x26001;0x26002;0x26003;0x26004;0x26005;0x26006;0x26007;0x26008;0x26009;0x2600A;0x2600B;0x26064;0x26065;0x26066;0x26067;0x26068;0x26069;0x2606A;0x2606B;0x2606C;0x2606D;0x2606E;0x2606F" />
-	<Region id="0x054" section="0" plane="21" ud="0" lr="0" TriggerLpGbts="44" DaqLpGbts="24" DaqRate="64.21" TCcount="416" Motherboards="0x2A000;0x2A001;0x2A002;0x2A003;0x2A004;0x2A005;0x2A006;0x2A007;0x2A008;0x2A009;0x2A00A;0x2A00B;0x2A064;0x2A065;0x2A066;0x2A067;0x2A068;0x2A069;0x2A06A;0x2A06B;0x2A06C;0x2A06D;0x2A06E;0x2A06F" />
-	<Region id="0x05C" section="0" plane="23" ud="0" lr="0" TriggerLpGbts="44" DaqLpGbts="24" DaqRate="62.23" TCcount="416" Motherboards="0x2E000;0x2E001;0x2E002;0x2E003;0x2E004;0x2E005;0x2E006;0x2E007;0x2E008;0x2E009;0x2E00A;0x2E00B;0x2E064;0x2E065;0x2E066;0x2E067;0x2E068;0x2E069;0x2E06A;0x2E06B;0x2E06C;0x2E06D;0x2E06E;0x2E06F" />
-	<Region id="0x064" section="0" plane="25" ud="0" lr="0" TriggerLpGbts="48" DaqLpGbts="26" DaqRate="60.84" TCcount="432" Motherboards="0x32000;0x32001;0x32002;0x32003;0x32004;0x32005;0x32006;0x32007;0x32008;0x32009;0x3200A;0x3200B;0x3200C;0x32064;0x32065;0x32066;0x32067;0x32068;0x32069;0x3206A;0x3206B;0x3206C;0x3206D;0x3206E;0x3206F;0x32070" />
-	<Region id="0x080" section="1" plane="0" ud="0" lr="0" TriggerLpGbts="56" DaqLpGbts="28" DaqRate="53.15" TCcount="546" Motherboards="0x36000;0x36001;0x36002;0x36003;0x36004;0x36005;0x36006;0x36007;0x36008;0x36009;0x3600A;0x3600B;0x3600C;0x3600D;0x3600E;0x3600F;0x36010;0x36011;0x36012;0x36013;0x36014;0x36015;0x36016;0x36017;0x36018;0x36019" />
-	<Region id="0x084" section="1" plane="1" ud="0" lr="0" TriggerLpGbts="56" DaqLpGbts="26" DaqRate="51.79" TCcount="558" Motherboards="0x38000;0x38001;0x38002;0x38003;0x38004;0x38005;0x38006;0x38007;0x38008;0x38009;0x3800A;0x3800B;0x3800C;0x3800D;0x3800E;0x3800F;0x38010;0x38011;0x38012;0x38013;0x38014;0x38015;0x38016;0x38017;0x38018;0x38019" />
-	<Region id="0x088" section="1" plane="2" ud="0" lr="0" TriggerLpGbts="56" DaqLpGbts="26" DaqRate="49.83" TCcount="558" Motherboards="0x3A000;0x3A001;0x3A002;0x3A003;0x3A004;0x3A005;0x3A006;0x3A007;0x3A008;0x3A009;0x3A00A;0x3A00B;0x3A00C;0x3A00D;0x3A00E;0x3A00F;0x3A010;0x3A011;0x3A012;0x3A013;0x3A014;0x3A015;0x3A016;0x3A017;0x3A018;0x3A019" />
-	<Region id="0x08C" section="1" plane="3" ud="0" lr="0" TriggerLpGbts="51" DaqLpGbts="26" DaqRate="48.36" TCcount="570" Motherboards="0x3C000;0x3C001;0x3C002;0x3C003;0x3C004;0x3C005;0x3C006;0x3C007;0x3C008;0x3C009;0x3C00A;0x3C00B;0x3C00C;0x3C00D;0x3C00E;0x3C00F;0x3C010;0x3C011;0x3C012;0x3C013;0x3C014;0x3C015;0x3C016;0x3C017;0x3C018;0x3C019" />
-	<Region id="0x090" section="1" plane="4" ud="0" lr="0" TriggerLpGbts="56" DaqLpGbts="26" DaqRate="46.67" TCcount="582" Motherboards="0x3E000;0x3E001;0x3E002;0x3E003;0x3E004;0x3E005;0x3E006;0x3E007;0x3E008;0x3E009;0x3E00A;0x3E00B;0x3E00C;0x3E00D;0x3E00E;0x3E00F;0x3E010;0x3E011;0x3E012;0x3E013;0x3E014;0x3E015;0x3E016;0x3E017;0x3E018;0x3E019" />
-	<Region id="0x094" section="1" plane="5" ud="0" lr="0" TriggerLpGbts="53" DaqLpGbts="28" DaqRate="47.29" TCcount="624" Motherboards="0x40000;0x40001;0x40002;0x40003;0x40004;0x40005;0x40006;0x40007;0x40008;0x40009;0x4000A;0x4000B;0x4000C;0x4000D;0x4000E;0x4000F;0x40010;0x40011;0x40012;0x40013;0x40014;0x40015;0x40016;0x40017;0x40018;0x40019;0x4001A;0x4001B" />
-	<Region id="0x098" section="1" plane="6" ud="0" lr="0" TriggerLpGbts="60" DaqLpGbts="28" DaqRate="48.01" TCcount="654" Motherboards="0x42000;0x42001;0x42002;0x42003;0x42004;0x42005;0x42006;0x42007;0x42008;0x42009;0x4200A;0x4200B;0x4200C;0x4200D;0x4200E;0x4200F;0x42010;0x42011;0x42012;0x42013;0x42014;0x42015;0x42016;0x42017;0x42018;0x42019;0x4201B;0x4201D" />
-	<Region id="0x09C" section="1" plane="7" ud="0" lr="0" TriggerLpGbts="32" DaqLpGbts="16" DaqRate="27.77" TCcount="285" Motherboards="0x44000;0x44001;0x44002;0x44003;0x44004;0x44005;0x44006;0x44007;0x44008;0x44009;0x4400A;0x4400B;0x4400C;0x4400D;0x4400E;0x4400F" />
-	<Region id="0x0A0" section="1" plane="8" ud="0" lr="0" TriggerLpGbts="32" DaqLpGbts="16" DaqRate="26.70" TCcount="285" Motherboards="0x46000;0x46001;0x46002;0x46003;0x46004;0x46005;0x46006;0x46007;0x46008;0x46009;0x4600A;0x4600B;0x4600C;0x4600D;0x4600E;0x4600F" />
-	<Region id="0x0A4" section="1" plane="9" ud="0" lr="0" TriggerLpGbts="32" DaqLpGbts="16" DaqRate="25.88" TCcount="285" Motherboards="0x48000;0x48001;0x48002;0x48003;0x48004;0x48005;0x48006;0x48007;0x48008;0x48009;0x4800A;0x4800B;0x4800C;0x4800D;0x4800E;0x4800F" />
-	<Region id="0x0A8" section="1" plane="10" ud="0" lr="0" TriggerLpGbts="32" DaqLpGbts="16" DaqRate="25.21" TCcount="285" Motherboards="0x4A000;0x4A001;0x4A002;0x4A003;0x4A004;0x4A005;0x4A006;0x4A007;0x4A008;0x4A009;0x4A00A;0x4A00B;0x4A00C;0x4A00D;0x4A00E;0x4A00F" />
-	<Region id="0x0AC" section="1" plane="11" ud="0" lr="0" TriggerLpGbts="28" DaqLpGbts="14" DaqRate="17.97" TCcount="216" Motherboards="0x4C000;0x4C001;0x4C002;0x4C004;0x4C005;0x4C006;0x4C007;0x4C008;0x4C009;0x4C00B;0x4C00C;0x4C00D;0x4C00E;0x4C00F" />
-	<Region id="0x0B0" section="1" plane="12" ud="0" lr="0" TriggerLpGbts="28" DaqLpGbts="14" DaqRate="17.51" TCcount="216" Motherboards="0x4E000;0x4E001;0x4E002;0x4E004;0x4E005;0x4E006;0x4E007;0x4E008;0x4E009;0x4E00B;0x4E00C;0x4E00D;0x4E00E;0x4E00F" />
-	<Region id="0x0B4" section="1" plane="13" ud="0" lr="0" TriggerLpGbts="22" DaqLpGbts="11" DaqRate="12.94" TCcount="156" Motherboards="0x50000;0x50001;0x50003;0x50004;0x50005;0x50006;0x50007;0x50008;0x50009;0x5000A;0x5000B" />
-	<Region id="0x0B8" section="1" plane="14" ud="0" lr="0" TriggerLpGbts="22" DaqLpGbts="11" DaqRate="12.75" TCcount="156" Motherboards="0x52000;0x52001;0x52002;0x52003;0x52004;0x52005;0x52006;0x52007;0x52009;0x5200A;0x5200B" />
-	<Region id="0x0BC" section="1" plane="15" ud="0" lr="0" TriggerLpGbts="22" DaqLpGbts="11" DaqRate="12.51" TCcount="156" Motherboards="0x54000;0x54001;0x54003;0x54004;0x54005;0x54006;0x54007;0x54008;0x54009;0x5400A;0x5400B" />
-	<Region id="0x0C0" section="1" plane="16" ud="0" lr="0" TriggerLpGbts="22" DaqLpGbts="11" DaqRate="12.39" TCcount="156" Motherboards="0x56000;0x56001;0x56002;0x56003;0x56004;0x56005;0x56006;0x56007;0x56009;0x5600A;0x5600B" />
-	<Region id="0x0C4" section="1" plane="17" ud="0" lr="0" TriggerLpGbts="16" DaqLpGbts="9" DaqRate="8.99" TCcount="111" Motherboards="0x58000;0x58001;0x58002;0x58003;0x58004;0x58005;0x58006;0x58007;0x58008" />
-	<Region id="0x0C8" section="1" plane="18" ud="0" lr="0" TriggerLpGbts="16" DaqLpGbts="9" DaqRate="8.91" TCcount="111" Motherboards="0x5A000;0x5A001;0x5A002;0x5A003;0x5A004;0x5A005;0x5A006;0x5A007;0x5A008" />
-	<Region id="0x0CC" section="1" plane="19" ud="0" lr="0" TriggerLpGbts="16" DaqLpGbts="9" DaqRate="8.79" TCcount="111" Motherboards="0x5C000;0x5C001;0x5C002;0x5C003;0x5C004;0x5C005;0x5C006;0x5C007;0x5C008" />
-	<Region id="0x0D0" section="1" plane="20" ud="0" lr="0" TriggerLpGbts="16" DaqLpGbts="9" DaqRate="8.73" TCcount="111" Motherboards="0x5E000;0x5E001;0x5E002;0x5E003;0x5E004;0x5E005;0x5E006;0x5E007;0x5E008" />
-	<Region id="0x11C" section="2" plane="7" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="2.40" TCcount="72" Motherboards="0x45388;0x45389;0x4538A;0x453EC;0x453ED;0x453EE;0x45450;0x45451;0x45452;0x454B4;0x454B5;0x454B6" />
-	<Region id="0x120" section="2" plane="8" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="2.40" TCcount="96" Motherboards="0x47388;0x47389;0x4738A;0x473EC;0x473ED;0x473EE;0x47450;0x47451;0x47452;0x474B4;0x474B5;0x474B6" />
-	<Region id="0x124" section="2" plane="9" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="2.40" TCcount="96" Motherboards="0x49388;0x49389;0x4938A;0x493EC;0x493ED;0x493EE;0x49450;0x49451;0x49452;0x494B4;0x494B5;0x494B6" />
-	<Region id="0x128" section="2" plane="10" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="2.40" TCcount="96" Motherboards="0x4B388;0x4B389;0x4B38A;0x4B3EC;0x4B3ED;0x4B3EE;0x4B450;0x4B451;0x4B452;0x4B4B4;0x4B4B5;0x4B4B6" />
-	<Region id="0x12C" section="2" plane="11" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="168" Motherboards="0x4D388;0x4D389;0x4D38A;0x4D3EC;0x4D3ED;0x4D3EE;0x4D450;0x4D451;0x4D452;0x4D4B4;0x4D4B5;0x4D4B6" />
-	<Region id="0x130" section="2" plane="12" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="168" Motherboards="0x4F388;0x4F389;0x4F38A;0x4F3EC;0x4F3ED;0x4F3EE;0x4F450;0x4F451;0x4F452;0x4F4B4;0x4F4B5;0x4F4B6" />
-	<Region id="0x134" section="2" plane="13" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="216" Motherboards="0x51388;0x51389;0x5138A;0x513EC;0x513ED;0x513EE;0x51450;0x51451;0x51452;0x514B4;0x514B5;0x514B6" />
-	<Region id="0x138" section="2" plane="14" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="216" Motherboards="0x53388;0x53389;0x5338A;0x533EC;0x533ED;0x533EE;0x53450;0x53451;0x53452;0x534B4;0x534B5;0x534B6" />
-	<Region id="0x13C" section="2" plane="15" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="216" Motherboards="0x55388;0x55389;0x5538A;0x553EC;0x553ED;0x553EE;0x55450;0x55451;0x55452;0x554B4;0x554B5;0x554B6" />
-	<Region id="0x140" section="2" plane="16" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="216" Motherboards="0x57388;0x57389;0x5738A;0x573EC;0x573ED;0x573EE;0x57450;0x57451;0x57452;0x574B4;0x574B5;0x574B6" />
-	<Region id="0x144" section="2" plane="17" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="6.00" TCcount="264" Motherboards="0x59388;0x59389;0x5938A;0x593EC;0x593ED;0x593EE;0x59450;0x59451;0x59452;0x594B4;0x594B5;0x594B6" />
-	<Region id="0x148" section="2" plane="18" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="6.00" TCcount="264" Motherboards="0x5B388;0x5B389;0x5B38A;0x5B3EC;0x5B3ED;0x5B3EE;0x5B450;0x5B451;0x5B452;0x5B4B4;0x5B4B5;0x5B4B6" />
-	<Region id="0x14C" section="2" plane="19" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="6.00" TCcount="264" Motherboards="0x5D388;0x5D389;0x5D38A;0x5D3EC;0x5D3ED;0x5D3EE;0x5D450;0x5D451;0x5D452;0x5D4B4;0x5D4B5;0x5D4B6" />
-	<Region id="0x150" section="2" plane="20" ud="0" lr="0" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="6.00" TCcount="264" Motherboards="0x5F388;0x5F389;0x5F38A;0x5F3EC;0x5F3ED;0x5F3EE;0x5F450;0x5F451;0x5F452;0x5F4B4;0x5F4B5;0x5F4B6" />
-	<Region id="0x188" section="3" plane="2" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="106.27" TCcount="None" Motherboards="0x04000;0x04001;0x04002;0x04003;0x04004;0x04005;0x04006;0x04007;0x04008;0x04009;0x0400A;0x0400B;0x04064;0x04065;0x04066;0x04067;0x04068;0x04069;0x0406A;0x0406B;0x0406C;0x0406D;0x0406E;0x0406F" />
-	<Region id="0x190" section="3" plane="4" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="109.70" TCcount="None" Motherboards="0x08000;0x08001;0x08002;0x08003;0x08004;0x08005;0x08006;0x08007;0x08008;0x08009;0x0800A;0x0800B;0x08064;0x08065;0x08066;0x08067;0x08068;0x08069;0x0806A;0x0806B;0x0806C;0x0806D;0x0806E;0x0806F" />
-	<Region id="0x198" section="3" plane="6" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="104.47" TCcount="None" Motherboards="0x0C000;0x0C001;0x0C002;0x0C003;0x0C004;0x0C005;0x0C006;0x0C007;0x0C008;0x0C009;0x0C00A;0x0C00B;0x0C064;0x0C065;0x0C066;0x0C067;0x0C068;0x0C069;0x0C06A;0x0C06B;0x0C06C;0x0C06D;0x0C06E;0x0C06F" />
-	<Region id="0x1A0" section="3" plane="8" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="94.20" TCcount="None" Motherboards="0x10000;0x10001;0x10002;0x10003;0x10004;0x10005;0x10006;0x10007;0x10008;0x10009;0x1000A;0x1000B;0x10064;0x10065;0x10066;0x10067;0x10068;0x10069;0x1006A;0x1006B;0x1006C;0x1006D;0x1006E;0x1006F" />
-	<Region id="0x1A8" section="3" plane="10" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="85.52" TCcount="None" Motherboards="0x14000;0x14001;0x14002;0x14003;0x14004;0x14005;0x14006;0x14007;0x14008;0x14009;0x1400A;0x1400B;0x14064;0x14065;0x14066;0x14067;0x14068;0x14069;0x1406A;0x1406B;0x1406C;0x1406D;0x1406E;0x1406F" />
-	<Region id="0x1B0" section="3" plane="12" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="28" DaqRate="77.67" TCcount="None" Motherboards="0x18000;0x18002;0x18003;0x18004;0x18005;0x18006;0x18007;0x18008;0x18009;0x1800A;0x1800B;0x1800C;0x18064;0x18066;0x18067;0x18068;0x18069;0x1806A;0x1806B;0x1806C;0x1806D;0x1806E;0x1806F;0x18070" />
-	<Region id="0x1B8" section="3" plane="14" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="26" DaqRate="72.28" TCcount="None" Motherboards="0x1C000;0x1C001;0x1C002;0x1C003;0x1C004;0x1C005;0x1C006;0x1C007;0x1C008;0x1C009;0x1C00A;0x1C00B;0x1C064;0x1C065;0x1C066;0x1C067;0x1C068;0x1C069;0x1C06A;0x1C06B;0x1C06C;0x1C06D;0x1C06E;0x1C06F" />
-	<Region id="0x1C0" section="3" plane="16" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="26" DaqRate="68.92" TCcount="None" Motherboards="0x20000;0x20001;0x20002;0x20003;0x20004;0x20005;0x20006;0x20007;0x20008;0x20009;0x2000A;0x2000B;0x20064;0x20065;0x20066;0x20067;0x20068;0x20069;0x2006A;0x2006B;0x2006C;0x2006D;0x2006E;0x2006F" />
-	<Region id="0x1C8" section="3" plane="18" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="26" DaqRate="66.07" TCcount="None" Motherboards="0x24000;0x24001;0x24002;0x24003;0x24004;0x24005;0x24006;0x24007;0x24008;0x24009;0x2400A;0x2400B;0x24064;0x24065;0x24066;0x24067;0x24068;0x24069;0x2406A;0x2406B;0x2406C;0x2406D;0x2406E;0x2406F" />
-	<Region id="0x1D0" section="3" plane="20" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="24" DaqRate="63.34" TCcount="None" Motherboards="0x28000;0x28001;0x28002;0x28003;0x28004;0x28005;0x28006;0x28007;0x28008;0x28009;0x2800A;0x2800B;0x28064;0x28065;0x28066;0x28067;0x28068;0x28069;0x2806A;0x2806B;0x2806C;0x2806D;0x2806E;0x2806F" />
-	<Region id="0x1D8" section="3" plane="22" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="24" DaqRate="61.10" TCcount="None" Motherboards="0x2C000;0x2C001;0x2C002;0x2C003;0x2C004;0x2C005;0x2C006;0x2C007;0x2C008;0x2C009;0x2C00A;0x2C00B;0x2C064;0x2C065;0x2C066;0x2C067;0x2C068;0x2C069;0x2C06A;0x2C06B;0x2C06C;0x2C06D;0x2C06E;0x2C06F" />
-	<Region id="0x1E0" section="3" plane="24" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="24" DaqRate="60.34" TCcount="None" Motherboards="0x30000;0x30001;0x30002;0x30003;0x30004;0x30005;0x30006;0x30007;0x30008;0x30009;0x3000A;0x3000B;0x30064;0x30065;0x30066;0x30067;0x30068;0x30069;0x3006A;0x3006B;0x3006C;0x3006D;0x3006E;0x3006F" />
-	<Region id="0x1E8" section="3" plane="26" ud="0" lr="0" TriggerLpGbts="0" DaqLpGbts="24" DaqRate="58.37" TCcount="None" Motherboards="0x34000;0x34001;0x34002;0x34003;0x34004;0x34005;0x34006;0x34007;0x34008;0x34009;0x3400A;0x3400B;0x34064;0x34065;0x34066;0x34067;0x34068;0x34069;0x3406A;0x3406B;0x3406C;0x3406D;0x3406E;0x3406F" />
+<Regions id="geometry/Regions.120.NoSplit.xml" Src="geometry/Geometry.xml" Src-hash="289f130fcd19e4d65d850b4a44b05d26" Timestamp="2024-01-17 11:39:56.574746">
+	<!-- Hierarchical XML file representing logical regions for one 120-degree sector of one endcap                                                                                                              -->
+	<!-- Hierarchy is Region => Ref(Motherboard)                                                                                                                                                                 -->
+	<Region id="0x61410000" TriggerLpGbts="56" DaqLpGbts="30" DaqRate="104.26" TCcount="384">
+		<Motherboard href="0x60810000" />
+		<Motherboard href="0x60810008" />
+		<Motherboard href="0x60810010" />
+		<Motherboard href="0x60810018" />
+		<Motherboard href="0x60810020" />
+		<Motherboard href="0x60810028" />
+		<Motherboard href="0x60810030" />
+		<Motherboard href="0x60810038" />
+		<Motherboard href="0x60810040" />
+		<Motherboard href="0x60810048" />
+		<Motherboard href="0x60810050" />
+		<Motherboard href="0x60810058" />
+		<Motherboard href="0x60810320" />
+		<Motherboard href="0x60810328" />
+		<Motherboard href="0x60810330" />
+		<Motherboard href="0x60810338" />
+		<Motherboard href="0x60810340" />
+		<Motherboard href="0x60810348" />
+		<Motherboard href="0x60810350" />
+		<Motherboard href="0x60810358" />
+		<Motherboard href="0x60810360" />
+		<Motherboard href="0x60810368" />
+		<Motherboard href="0x60810370" />
+		<Motherboard href="0x60810378" />
+	</Region>
+	<Region id="0x61430000" TriggerLpGbts="70" DaqLpGbts="34" DaqRate="122.06" TCcount="384">
+		<Motherboard href="0x60830000" />
+		<Motherboard href="0x60830008" />
+		<Motherboard href="0x60830010" />
+		<Motherboard href="0x60830018" />
+		<Motherboard href="0x60830020" />
+		<Motherboard href="0x60830028" />
+		<Motherboard href="0x60830030" />
+		<Motherboard href="0x60830038" />
+		<Motherboard href="0x60830040" />
+		<Motherboard href="0x60830048" />
+		<Motherboard href="0x60830050" />
+		<Motherboard href="0x60830058" />
+		<Motherboard href="0x60830060" />
+		<Motherboard href="0x60830068" />
+		<Motherboard href="0x60830320" />
+		<Motherboard href="0x60830328" />
+		<Motherboard href="0x60830330" />
+		<Motherboard href="0x60830338" />
+		<Motherboard href="0x60830340" />
+		<Motherboard href="0x60830348" />
+		<Motherboard href="0x60830350" />
+		<Motherboard href="0x60830358" />
+		<Motherboard href="0x60830360" />
+		<Motherboard href="0x60830368" />
+		<Motherboard href="0x60830370" />
+		<Motherboard href="0x60830378" />
+		<Motherboard href="0x60830380" />
+		<Motherboard href="0x60830388" />
+	</Region>
+	<Region id="0x61450000" TriggerLpGbts="68" DaqLpGbts="32" DaqRate="119.36" TCcount="384">
+		<Motherboard href="0x60850000" />
+		<Motherboard href="0x60850008" />
+		<Motherboard href="0x60850010" />
+		<Motherboard href="0x60850018" />
+		<Motherboard href="0x60850020" />
+		<Motherboard href="0x60850028" />
+		<Motherboard href="0x60850030" />
+		<Motherboard href="0x60850038" />
+		<Motherboard href="0x60850040" />
+		<Motherboard href="0x60850048" />
+		<Motherboard href="0x60850050" />
+		<Motherboard href="0x60850058" />
+		<Motherboard href="0x60850060" />
+		<Motherboard href="0x60850320" />
+		<Motherboard href="0x60850328" />
+		<Motherboard href="0x60850330" />
+		<Motherboard href="0x60850338" />
+		<Motherboard href="0x60850340" />
+		<Motherboard href="0x60850348" />
+		<Motherboard href="0x60850350" />
+		<Motherboard href="0x60850358" />
+		<Motherboard href="0x60850360" />
+		<Motherboard href="0x60850368" />
+		<Motherboard href="0x60850370" />
+		<Motherboard href="0x60850378" />
+		<Motherboard href="0x60850380" />
+	</Region>
+	<Region id="0x61470000" TriggerLpGbts="64" DaqLpGbts="32" DaqRate="108.48" TCcount="738">
+		<Motherboard href="0x60870000" />
+		<Motherboard href="0x60870008" />
+		<Motherboard href="0x60870010" />
+		<Motherboard href="0x60870018" />
+		<Motherboard href="0x60870020" />
+		<Motherboard href="0x60870028" />
+		<Motherboard href="0x60870030" />
+		<Motherboard href="0x60870038" />
+		<Motherboard href="0x60870040" />
+		<Motherboard href="0x60870048" />
+		<Motherboard href="0x60870050" />
+		<Motherboard href="0x60870058" />
+		<Motherboard href="0x60870060" />
+		<Motherboard href="0x60870320" />
+		<Motherboard href="0x60870328" />
+		<Motherboard href="0x60870330" />
+		<Motherboard href="0x60870338" />
+		<Motherboard href="0x60870340" />
+		<Motherboard href="0x60870348" />
+		<Motherboard href="0x60870350" />
+		<Motherboard href="0x60870358" />
+		<Motherboard href="0x60870360" />
+		<Motherboard href="0x60870368" />
+		<Motherboard href="0x60870370" />
+		<Motherboard href="0x60870378" />
+		<Motherboard href="0x60870380" />
+	</Region>
+	<Region id="0x61490000" TriggerLpGbts="64" DaqLpGbts="34" DaqRate="97.94" TCcount="762">
+		<Motherboard href="0x60890000" />
+		<Motherboard href="0x60890008" />
+		<Motherboard href="0x60890010" />
+		<Motherboard href="0x60890018" />
+		<Motherboard href="0x60890020" />
+		<Motherboard href="0x60890028" />
+		<Motherboard href="0x60890030" />
+		<Motherboard href="0x60890038" />
+		<Motherboard href="0x60890040" />
+		<Motherboard href="0x60890048" />
+		<Motherboard href="0x60890050" />
+		<Motherboard href="0x60890058" />
+		<Motherboard href="0x60890060" />
+		<Motherboard href="0x60890068" />
+		<Motherboard href="0x60890320" />
+		<Motherboard href="0x60890328" />
+		<Motherboard href="0x60890330" />
+		<Motherboard href="0x60890338" />
+		<Motherboard href="0x60890340" />
+		<Motherboard href="0x60890348" />
+		<Motherboard href="0x60890350" />
+		<Motherboard href="0x60890358" />
+		<Motherboard href="0x60890360" />
+		<Motherboard href="0x60890368" />
+		<Motherboard href="0x60890370" />
+		<Motherboard href="0x60890378" />
+		<Motherboard href="0x60890380" />
+		<Motherboard href="0x60890388" />
+	</Region>
+	<Region id="0x614B0000" TriggerLpGbts="60" DaqLpGbts="34" DaqRate="87.09" TCcount="762">
+		<Motherboard href="0x608B0000" />
+		<Motherboard href="0x608B0008" />
+		<Motherboard href="0x608B0010" />
+		<Motherboard href="0x608B0018" />
+		<Motherboard href="0x608B0020" />
+		<Motherboard href="0x608B0028" />
+		<Motherboard href="0x608B0030" />
+		<Motherboard href="0x608B0038" />
+		<Motherboard href="0x608B0040" />
+		<Motherboard href="0x608B0048" />
+		<Motherboard href="0x608B0050" />
+		<Motherboard href="0x608B0058" />
+		<Motherboard href="0x608B0060" />
+		<Motherboard href="0x608B0068" />
+		<Motherboard href="0x608B0320" />
+		<Motherboard href="0x608B0328" />
+		<Motherboard href="0x608B0330" />
+		<Motherboard href="0x608B0338" />
+		<Motherboard href="0x608B0340" />
+		<Motherboard href="0x608B0348" />
+		<Motherboard href="0x608B0350" />
+		<Motherboard href="0x608B0358" />
+		<Motherboard href="0x608B0360" />
+		<Motherboard href="0x608B0368" />
+		<Motherboard href="0x608B0370" />
+		<Motherboard href="0x608B0378" />
+		<Motherboard href="0x608B0380" />
+		<Motherboard href="0x608B0388" />
+	</Region>
+	<Region id="0x614D0000" TriggerLpGbts="58" DaqLpGbts="32" DaqRate="79.11" TCcount="762">
+		<Motherboard href="0x608D0000" />
+		<Motherboard href="0x608D0008" />
+		<Motherboard href="0x608D0010" />
+		<Motherboard href="0x608D0018" />
+		<Motherboard href="0x608D0020" />
+		<Motherboard href="0x608D0028" />
+		<Motherboard href="0x608D0030" />
+		<Motherboard href="0x608D0038" />
+		<Motherboard href="0x608D0040" />
+		<Motherboard href="0x608D0048" />
+		<Motherboard href="0x608D0050" />
+		<Motherboard href="0x608D0058" />
+		<Motherboard href="0x608D0060" />
+		<Motherboard href="0x608D0068" />
+		<Motherboard href="0x608D0320" />
+		<Motherboard href="0x608D0328" />
+		<Motherboard href="0x608D0330" />
+		<Motherboard href="0x608D0338" />
+		<Motherboard href="0x608D0340" />
+		<Motherboard href="0x608D0348" />
+		<Motherboard href="0x608D0350" />
+		<Motherboard href="0x608D0358" />
+		<Motherboard href="0x608D0360" />
+		<Motherboard href="0x608D0368" />
+		<Motherboard href="0x608D0370" />
+		<Motherboard href="0x608D0378" />
+		<Motherboard href="0x608D0380" />
+		<Motherboard href="0x608D0388" />
+	</Region>
+	<Region id="0x614F0000" TriggerLpGbts="46" DaqLpGbts="26" DaqRate="73.59" TCcount="408">
+		<Motherboard href="0x608F0000" />
+		<Motherboard href="0x608F0008" />
+		<Motherboard href="0x608F0010" />
+		<Motherboard href="0x608F0018" />
+		<Motherboard href="0x608F0020" />
+		<Motherboard href="0x608F0028" />
+		<Motherboard href="0x608F0030" />
+		<Motherboard href="0x608F0038" />
+		<Motherboard href="0x608F0040" />
+		<Motherboard href="0x608F0048" />
+		<Motherboard href="0x608F0050" />
+		<Motherboard href="0x608F0058" />
+		<Motherboard href="0x608F0320" />
+		<Motherboard href="0x608F0328" />
+		<Motherboard href="0x608F0330" />
+		<Motherboard href="0x608F0338" />
+		<Motherboard href="0x608F0340" />
+		<Motherboard href="0x608F0348" />
+		<Motherboard href="0x608F0350" />
+		<Motherboard href="0x608F0358" />
+		<Motherboard href="0x608F0360" />
+		<Motherboard href="0x608F0368" />
+		<Motherboard href="0x608F0370" />
+		<Motherboard href="0x608F0378" />
+	</Region>
+	<Region id="0x61510000" TriggerLpGbts="46" DaqLpGbts="26" DaqRate="69.66" TCcount="408">
+		<Motherboard href="0x60910000" />
+		<Motherboard href="0x60910008" />
+		<Motherboard href="0x60910010" />
+		<Motherboard href="0x60910018" />
+		<Motherboard href="0x60910020" />
+		<Motherboard href="0x60910028" />
+		<Motherboard href="0x60910030" />
+		<Motherboard href="0x60910038" />
+		<Motherboard href="0x60910040" />
+		<Motherboard href="0x60910048" />
+		<Motherboard href="0x60910050" />
+		<Motherboard href="0x60910058" />
+		<Motherboard href="0x60910320" />
+		<Motherboard href="0x60910328" />
+		<Motherboard href="0x60910330" />
+		<Motherboard href="0x60910338" />
+		<Motherboard href="0x60910340" />
+		<Motherboard href="0x60910348" />
+		<Motherboard href="0x60910350" />
+		<Motherboard href="0x60910358" />
+		<Motherboard href="0x60910360" />
+		<Motherboard href="0x60910368" />
+		<Motherboard href="0x60910370" />
+		<Motherboard href="0x60910378" />
+	</Region>
+	<Region id="0x61530000" TriggerLpGbts="44" DaqLpGbts="26" DaqRate="66.38" TCcount="408">
+		<Motherboard href="0x60930000" />
+		<Motherboard href="0x60930008" />
+		<Motherboard href="0x60930010" />
+		<Motherboard href="0x60930018" />
+		<Motherboard href="0x60930020" />
+		<Motherboard href="0x60930028" />
+		<Motherboard href="0x60930030" />
+		<Motherboard href="0x60930038" />
+		<Motherboard href="0x60930040" />
+		<Motherboard href="0x60930048" />
+		<Motherboard href="0x60930050" />
+		<Motherboard href="0x60930058" />
+		<Motherboard href="0x60930320" />
+		<Motherboard href="0x60930328" />
+		<Motherboard href="0x60930330" />
+		<Motherboard href="0x60930338" />
+		<Motherboard href="0x60930340" />
+		<Motherboard href="0x60930348" />
+		<Motherboard href="0x60930350" />
+		<Motherboard href="0x60930358" />
+		<Motherboard href="0x60930360" />
+		<Motherboard href="0x60930368" />
+		<Motherboard href="0x60930370" />
+		<Motherboard href="0x60930378" />
+	</Region>
+	<Region id="0x61550000" TriggerLpGbts="44" DaqLpGbts="24" DaqRate="64.21" TCcount="416">
+		<Motherboard href="0x60950000" />
+		<Motherboard href="0x60950008" />
+		<Motherboard href="0x60950010" />
+		<Motherboard href="0x60950018" />
+		<Motherboard href="0x60950020" />
+		<Motherboard href="0x60950028" />
+		<Motherboard href="0x60950030" />
+		<Motherboard href="0x60950038" />
+		<Motherboard href="0x60950040" />
+		<Motherboard href="0x60950048" />
+		<Motherboard href="0x60950050" />
+		<Motherboard href="0x60950058" />
+		<Motherboard href="0x60950320" />
+		<Motherboard href="0x60950328" />
+		<Motherboard href="0x60950330" />
+		<Motherboard href="0x60950338" />
+		<Motherboard href="0x60950340" />
+		<Motherboard href="0x60950348" />
+		<Motherboard href="0x60950350" />
+		<Motherboard href="0x60950358" />
+		<Motherboard href="0x60950360" />
+		<Motherboard href="0x60950368" />
+		<Motherboard href="0x60950370" />
+		<Motherboard href="0x60950378" />
+	</Region>
+	<Region id="0x61570000" TriggerLpGbts="44" DaqLpGbts="24" DaqRate="62.23" TCcount="416">
+		<Motherboard href="0x60970000" />
+		<Motherboard href="0x60970008" />
+		<Motherboard href="0x60970010" />
+		<Motherboard href="0x60970018" />
+		<Motherboard href="0x60970020" />
+		<Motherboard href="0x60970028" />
+		<Motherboard href="0x60970030" />
+		<Motherboard href="0x60970038" />
+		<Motherboard href="0x60970040" />
+		<Motherboard href="0x60970048" />
+		<Motherboard href="0x60970050" />
+		<Motherboard href="0x60970058" />
+		<Motherboard href="0x60970320" />
+		<Motherboard href="0x60970328" />
+		<Motherboard href="0x60970330" />
+		<Motherboard href="0x60970338" />
+		<Motherboard href="0x60970340" />
+		<Motherboard href="0x60970348" />
+		<Motherboard href="0x60970350" />
+		<Motherboard href="0x60970358" />
+		<Motherboard href="0x60970360" />
+		<Motherboard href="0x60970368" />
+		<Motherboard href="0x60970370" />
+		<Motherboard href="0x60970378" />
+	</Region>
+	<Region id="0x61590000" TriggerLpGbts="48" DaqLpGbts="26" DaqRate="60.84" TCcount="432">
+		<Motherboard href="0x60990000" />
+		<Motherboard href="0x60990008" />
+		<Motherboard href="0x60990010" />
+		<Motherboard href="0x60990018" />
+		<Motherboard href="0x60990020" />
+		<Motherboard href="0x60990028" />
+		<Motherboard href="0x60990030" />
+		<Motherboard href="0x60990038" />
+		<Motherboard href="0x60990040" />
+		<Motherboard href="0x60990048" />
+		<Motherboard href="0x60990050" />
+		<Motherboard href="0x60990058" />
+		<Motherboard href="0x60990060" />
+		<Motherboard href="0x60990320" />
+		<Motherboard href="0x60990328" />
+		<Motherboard href="0x60990330" />
+		<Motherboard href="0x60990338" />
+		<Motherboard href="0x60990340" />
+		<Motherboard href="0x60990348" />
+		<Motherboard href="0x60990350" />
+		<Motherboard href="0x60990358" />
+		<Motherboard href="0x60990360" />
+		<Motherboard href="0x60990368" />
+		<Motherboard href="0x60990370" />
+		<Motherboard href="0x60990378" />
+		<Motherboard href="0x60990380" />
+	</Region>
+	<Region id="0x615B0002" TriggerLpGbts="56" DaqLpGbts="28" DaqRate="53.15" TCcount="546">
+		<Motherboard href="0x609B0000" />
+		<Motherboard href="0x609B0008" />
+		<Motherboard href="0x609B0010" />
+		<Motherboard href="0x609B0018" />
+		<Motherboard href="0x609B0020" />
+		<Motherboard href="0x609B0028" />
+		<Motherboard href="0x609B0030" />
+		<Motherboard href="0x609B0038" />
+		<Motherboard href="0x609B0040" />
+		<Motherboard href="0x609B0048" />
+		<Motherboard href="0x609B0050" />
+		<Motherboard href="0x609B0058" />
+		<Motherboard href="0x609B0060" />
+		<Motherboard href="0x609B0068" />
+		<Motherboard href="0x609B0070" />
+		<Motherboard href="0x609B0078" />
+		<Motherboard href="0x609B0080" />
+		<Motherboard href="0x609B0088" />
+		<Motherboard href="0x609B0090" />
+		<Motherboard href="0x609B0098" />
+		<Motherboard href="0x609B00A0" />
+		<Motherboard href="0x609B00A8" />
+		<Motherboard href="0x609B00B0" />
+		<Motherboard href="0x609B00B8" />
+		<Motherboard href="0x609B00C0" />
+		<Motherboard href="0x609B00C8" />
+	</Region>
+	<Region id="0x615C0002" TriggerLpGbts="56" DaqLpGbts="26" DaqRate="51.79" TCcount="558">
+		<Motherboard href="0x609C0000" />
+		<Motherboard href="0x609C0008" />
+		<Motherboard href="0x609C0010" />
+		<Motherboard href="0x609C0018" />
+		<Motherboard href="0x609C0020" />
+		<Motherboard href="0x609C0028" />
+		<Motherboard href="0x609C0030" />
+		<Motherboard href="0x609C0038" />
+		<Motherboard href="0x609C0040" />
+		<Motherboard href="0x609C0048" />
+		<Motherboard href="0x609C0050" />
+		<Motherboard href="0x609C0058" />
+		<Motherboard href="0x609C0060" />
+		<Motherboard href="0x609C0068" />
+		<Motherboard href="0x609C0070" />
+		<Motherboard href="0x609C0078" />
+		<Motherboard href="0x609C0080" />
+		<Motherboard href="0x609C0088" />
+		<Motherboard href="0x609C0090" />
+		<Motherboard href="0x609C0098" />
+		<Motherboard href="0x609C00A0" />
+		<Motherboard href="0x609C00A8" />
+		<Motherboard href="0x609C00B0" />
+		<Motherboard href="0x609C00B8" />
+		<Motherboard href="0x609C00C0" />
+		<Motherboard href="0x609C00C8" />
+	</Region>
+	<Region id="0x615D0002" TriggerLpGbts="56" DaqLpGbts="26" DaqRate="49.83" TCcount="558">
+		<Motherboard href="0x609D0000" />
+		<Motherboard href="0x609D0008" />
+		<Motherboard href="0x609D0010" />
+		<Motherboard href="0x609D0018" />
+		<Motherboard href="0x609D0020" />
+		<Motherboard href="0x609D0028" />
+		<Motherboard href="0x609D0030" />
+		<Motherboard href="0x609D0038" />
+		<Motherboard href="0x609D0040" />
+		<Motherboard href="0x609D0048" />
+		<Motherboard href="0x609D0050" />
+		<Motherboard href="0x609D0058" />
+		<Motherboard href="0x609D0060" />
+		<Motherboard href="0x609D0068" />
+		<Motherboard href="0x609D0070" />
+		<Motherboard href="0x609D0078" />
+		<Motherboard href="0x609D0080" />
+		<Motherboard href="0x609D0088" />
+		<Motherboard href="0x609D0090" />
+		<Motherboard href="0x609D0098" />
+		<Motherboard href="0x609D00A0" />
+		<Motherboard href="0x609D00A8" />
+		<Motherboard href="0x609D00B0" />
+		<Motherboard href="0x609D00B8" />
+		<Motherboard href="0x609D00C0" />
+		<Motherboard href="0x609D00C8" />
+	</Region>
+	<Region id="0x615E0002" TriggerLpGbts="56" DaqLpGbts="26" DaqRate="48.36" TCcount="570">
+		<Motherboard href="0x609E0000" />
+		<Motherboard href="0x609E0008" />
+		<Motherboard href="0x609E0010" />
+		<Motherboard href="0x609E0018" />
+		<Motherboard href="0x609E0020" />
+		<Motherboard href="0x609E0028" />
+		<Motherboard href="0x609E0030" />
+		<Motherboard href="0x609E0038" />
+		<Motherboard href="0x609E0040" />
+		<Motherboard href="0x609E0048" />
+		<Motherboard href="0x609E0050" />
+		<Motherboard href="0x609E0058" />
+		<Motherboard href="0x609E0060" />
+		<Motherboard href="0x609E0068" />
+		<Motherboard href="0x609E0070" />
+		<Motherboard href="0x609E0078" />
+		<Motherboard href="0x609E0080" />
+		<Motherboard href="0x609E0088" />
+		<Motherboard href="0x609E0090" />
+		<Motherboard href="0x609E0098" />
+		<Motherboard href="0x609E00A0" />
+		<Motherboard href="0x609E00A8" />
+		<Motherboard href="0x609E00B0" />
+		<Motherboard href="0x609E00B8" />
+		<Motherboard href="0x609E00C0" />
+		<Motherboard href="0x609E00C8" />
+	</Region>
+	<Region id="0x615F0002" TriggerLpGbts="56" DaqLpGbts="26" DaqRate="46.67" TCcount="582">
+		<Motherboard href="0x609F0000" />
+		<Motherboard href="0x609F0008" />
+		<Motherboard href="0x609F0010" />
+		<Motherboard href="0x609F0018" />
+		<Motherboard href="0x609F0020" />
+		<Motherboard href="0x609F0028" />
+		<Motherboard href="0x609F0030" />
+		<Motherboard href="0x609F0038" />
+		<Motherboard href="0x609F0040" />
+		<Motherboard href="0x609F0048" />
+		<Motherboard href="0x609F0050" />
+		<Motherboard href="0x609F0058" />
+		<Motherboard href="0x609F0060" />
+		<Motherboard href="0x609F0068" />
+		<Motherboard href="0x609F0070" />
+		<Motherboard href="0x609F0078" />
+		<Motherboard href="0x609F0080" />
+		<Motherboard href="0x609F0088" />
+		<Motherboard href="0x609F0090" />
+		<Motherboard href="0x609F0098" />
+		<Motherboard href="0x609F00A0" />
+		<Motherboard href="0x609F00A8" />
+		<Motherboard href="0x609F00B0" />
+		<Motherboard href="0x609F00B8" />
+		<Motherboard href="0x609F00C0" />
+		<Motherboard href="0x609F00C8" />
+	</Region>
+	<Region id="0x61600002" TriggerLpGbts="58" DaqLpGbts="28" DaqRate="47.29" TCcount="624">
+		<Motherboard href="0x60A00000" />
+		<Motherboard href="0x60A00008" />
+		<Motherboard href="0x60A00010" />
+		<Motherboard href="0x60A00018" />
+		<Motherboard href="0x60A00020" />
+		<Motherboard href="0x60A00028" />
+		<Motherboard href="0x60A00030" />
+		<Motherboard href="0x60A00038" />
+		<Motherboard href="0x60A00040" />
+		<Motherboard href="0x60A00048" />
+		<Motherboard href="0x60A00050" />
+		<Motherboard href="0x60A00058" />
+		<Motherboard href="0x60A00060" />
+		<Motherboard href="0x60A00068" />
+		<Motherboard href="0x60A00070" />
+		<Motherboard href="0x60A00078" />
+		<Motherboard href="0x60A00080" />
+		<Motherboard href="0x60A00088" />
+		<Motherboard href="0x60A00090" />
+		<Motherboard href="0x60A00098" />
+		<Motherboard href="0x60A000A0" />
+		<Motherboard href="0x60A000A8" />
+		<Motherboard href="0x60A000B0" />
+		<Motherboard href="0x60A000B8" />
+		<Motherboard href="0x60A000C0" />
+		<Motherboard href="0x60A000C8" />
+		<Motherboard href="0x60A000D0" />
+		<Motherboard href="0x60A000D8" />
+	</Region>
+	<Region id="0x61610002" TriggerLpGbts="60" DaqLpGbts="28" DaqRate="48.01" TCcount="654">
+		<Motherboard href="0x60A10000" />
+		<Motherboard href="0x60A10008" />
+		<Motherboard href="0x60A10010" />
+		<Motherboard href="0x60A10018" />
+		<Motherboard href="0x60A10020" />
+		<Motherboard href="0x60A10028" />
+		<Motherboard href="0x60A10030" />
+		<Motherboard href="0x60A10038" />
+		<Motherboard href="0x60A10040" />
+		<Motherboard href="0x60A10048" />
+		<Motherboard href="0x60A10050" />
+		<Motherboard href="0x60A10058" />
+		<Motherboard href="0x60A10060" />
+		<Motherboard href="0x60A10068" />
+		<Motherboard href="0x60A10070" />
+		<Motherboard href="0x60A10078" />
+		<Motherboard href="0x60A10080" />
+		<Motherboard href="0x60A10088" />
+		<Motherboard href="0x60A10090" />
+		<Motherboard href="0x60A10098" />
+		<Motherboard href="0x60A100A0" />
+		<Motherboard href="0x60A100A8" />
+		<Motherboard href="0x60A100B0" />
+		<Motherboard href="0x60A100B8" />
+		<Motherboard href="0x60A100C0" />
+		<Motherboard href="0x60A100C8" />
+		<Motherboard href="0x60A100D8" />
+		<Motherboard href="0x60A100E8" />
+	</Region>
+	<Region id="0x61620002" TriggerLpGbts="32" DaqLpGbts="16" DaqRate="27.77" TCcount="285">
+		<Motherboard href="0x60A20000" />
+		<Motherboard href="0x60A20008" />
+		<Motherboard href="0x60A20010" />
+		<Motherboard href="0x60A20018" />
+		<Motherboard href="0x60A20020" />
+		<Motherboard href="0x60A20028" />
+		<Motherboard href="0x60A20030" />
+		<Motherboard href="0x60A20038" />
+		<Motherboard href="0x60A20040" />
+		<Motherboard href="0x60A20048" />
+		<Motherboard href="0x60A20050" />
+		<Motherboard href="0x60A20058" />
+		<Motherboard href="0x60A20060" />
+		<Motherboard href="0x60A20068" />
+		<Motherboard href="0x60A20070" />
+		<Motherboard href="0x60A20078" />
+	</Region>
+	<Region id="0x61630002" TriggerLpGbts="32" DaqLpGbts="16" DaqRate="26.70" TCcount="285">
+		<Motherboard href="0x60A30000" />
+		<Motherboard href="0x60A30008" />
+		<Motherboard href="0x60A30010" />
+		<Motherboard href="0x60A30018" />
+		<Motherboard href="0x60A30020" />
+		<Motherboard href="0x60A30028" />
+		<Motherboard href="0x60A30030" />
+		<Motherboard href="0x60A30038" />
+		<Motherboard href="0x60A30040" />
+		<Motherboard href="0x60A30048" />
+		<Motherboard href="0x60A30050" />
+		<Motherboard href="0x60A30058" />
+		<Motherboard href="0x60A30060" />
+		<Motherboard href="0x60A30068" />
+		<Motherboard href="0x60A30070" />
+		<Motherboard href="0x60A30078" />
+	</Region>
+	<Region id="0x61640002" TriggerLpGbts="32" DaqLpGbts="16" DaqRate="25.88" TCcount="285">
+		<Motherboard href="0x60A40000" />
+		<Motherboard href="0x60A40008" />
+		<Motherboard href="0x60A40010" />
+		<Motherboard href="0x60A40018" />
+		<Motherboard href="0x60A40020" />
+		<Motherboard href="0x60A40028" />
+		<Motherboard href="0x60A40030" />
+		<Motherboard href="0x60A40038" />
+		<Motherboard href="0x60A40040" />
+		<Motherboard href="0x60A40048" />
+		<Motherboard href="0x60A40050" />
+		<Motherboard href="0x60A40058" />
+		<Motherboard href="0x60A40060" />
+		<Motherboard href="0x60A40068" />
+		<Motherboard href="0x60A40070" />
+		<Motherboard href="0x60A40078" />
+	</Region>
+	<Region id="0x61650002" TriggerLpGbts="32" DaqLpGbts="16" DaqRate="25.21" TCcount="285">
+		<Motherboard href="0x60A50000" />
+		<Motherboard href="0x60A50008" />
+		<Motherboard href="0x60A50010" />
+		<Motherboard href="0x60A50018" />
+		<Motherboard href="0x60A50020" />
+		<Motherboard href="0x60A50028" />
+		<Motherboard href="0x60A50030" />
+		<Motherboard href="0x60A50038" />
+		<Motherboard href="0x60A50040" />
+		<Motherboard href="0x60A50048" />
+		<Motherboard href="0x60A50050" />
+		<Motherboard href="0x60A50058" />
+		<Motherboard href="0x60A50060" />
+		<Motherboard href="0x60A50068" />
+		<Motherboard href="0x60A50070" />
+		<Motherboard href="0x60A50078" />
+	</Region>
+	<Region id="0x61660002" TriggerLpGbts="28" DaqLpGbts="14" DaqRate="17.97" TCcount="216">
+		<Motherboard href="0x60A60000" />
+		<Motherboard href="0x60A60008" />
+		<Motherboard href="0x60A60010" />
+		<Motherboard href="0x60A60020" />
+		<Motherboard href="0x60A60028" />
+		<Motherboard href="0x60A60030" />
+		<Motherboard href="0x60A60038" />
+		<Motherboard href="0x60A60040" />
+		<Motherboard href="0x60A60048" />
+		<Motherboard href="0x60A60058" />
+		<Motherboard href="0x60A60060" />
+		<Motherboard href="0x60A60068" />
+		<Motherboard href="0x60A60070" />
+		<Motherboard href="0x60A60078" />
+	</Region>
+	<Region id="0x61670002" TriggerLpGbts="28" DaqLpGbts="14" DaqRate="17.51" TCcount="216">
+		<Motherboard href="0x60A70000" />
+		<Motherboard href="0x60A70008" />
+		<Motherboard href="0x60A70010" />
+		<Motherboard href="0x60A70020" />
+		<Motherboard href="0x60A70028" />
+		<Motherboard href="0x60A70030" />
+		<Motherboard href="0x60A70038" />
+		<Motherboard href="0x60A70040" />
+		<Motherboard href="0x60A70048" />
+		<Motherboard href="0x60A70058" />
+		<Motherboard href="0x60A70060" />
+		<Motherboard href="0x60A70068" />
+		<Motherboard href="0x60A70070" />
+		<Motherboard href="0x60A70078" />
+	</Region>
+	<Region id="0x61680002" TriggerLpGbts="22" DaqLpGbts="11" DaqRate="12.94" TCcount="156">
+		<Motherboard href="0x60A80000" />
+		<Motherboard href="0x60A80008" />
+		<Motherboard href="0x60A80018" />
+		<Motherboard href="0x60A80020" />
+		<Motherboard href="0x60A80028" />
+		<Motherboard href="0x60A80030" />
+		<Motherboard href="0x60A80038" />
+		<Motherboard href="0x60A80040" />
+		<Motherboard href="0x60A80048" />
+		<Motherboard href="0x60A80050" />
+		<Motherboard href="0x60A80058" />
+	</Region>
+	<Region id="0x61690002" TriggerLpGbts="22" DaqLpGbts="11" DaqRate="12.75" TCcount="156">
+		<Motherboard href="0x60A90000" />
+		<Motherboard href="0x60A90008" />
+		<Motherboard href="0x60A90010" />
+		<Motherboard href="0x60A90018" />
+		<Motherboard href="0x60A90020" />
+		<Motherboard href="0x60A90028" />
+		<Motherboard href="0x60A90030" />
+		<Motherboard href="0x60A90038" />
+		<Motherboard href="0x60A90048" />
+		<Motherboard href="0x60A90050" />
+		<Motherboard href="0x60A90058" />
+	</Region>
+	<Region id="0x616A0002" TriggerLpGbts="22" DaqLpGbts="11" DaqRate="12.51" TCcount="156">
+		<Motherboard href="0x60AA0000" />
+		<Motherboard href="0x60AA0008" />
+		<Motherboard href="0x60AA0018" />
+		<Motherboard href="0x60AA0020" />
+		<Motherboard href="0x60AA0028" />
+		<Motherboard href="0x60AA0030" />
+		<Motherboard href="0x60AA0038" />
+		<Motherboard href="0x60AA0040" />
+		<Motherboard href="0x60AA0048" />
+		<Motherboard href="0x60AA0050" />
+		<Motherboard href="0x60AA0058" />
+	</Region>
+	<Region id="0x616B0002" TriggerLpGbts="22" DaqLpGbts="11" DaqRate="12.39" TCcount="156">
+		<Motherboard href="0x60AB0000" />
+		<Motherboard href="0x60AB0008" />
+		<Motherboard href="0x60AB0010" />
+		<Motherboard href="0x60AB0018" />
+		<Motherboard href="0x60AB0020" />
+		<Motherboard href="0x60AB0028" />
+		<Motherboard href="0x60AB0030" />
+		<Motherboard href="0x60AB0038" />
+		<Motherboard href="0x60AB0048" />
+		<Motherboard href="0x60AB0050" />
+		<Motherboard href="0x60AB0058" />
+	</Region>
+	<Region id="0x616C0002" TriggerLpGbts="16" DaqLpGbts="9" DaqRate="8.99" TCcount="111">
+		<Motherboard href="0x60AC0000" />
+		<Motherboard href="0x60AC0008" />
+		<Motherboard href="0x60AC0010" />
+		<Motherboard href="0x60AC0018" />
+		<Motherboard href="0x60AC0020" />
+		<Motherboard href="0x60AC0028" />
+		<Motherboard href="0x60AC0030" />
+		<Motherboard href="0x60AC0038" />
+		<Motherboard href="0x60AC0040" />
+	</Region>
+	<Region id="0x616D0002" TriggerLpGbts="16" DaqLpGbts="9" DaqRate="8.91" TCcount="111">
+		<Motherboard href="0x60AD0000" />
+		<Motherboard href="0x60AD0008" />
+		<Motherboard href="0x60AD0010" />
+		<Motherboard href="0x60AD0018" />
+		<Motherboard href="0x60AD0020" />
+		<Motherboard href="0x60AD0028" />
+		<Motherboard href="0x60AD0030" />
+		<Motherboard href="0x60AD0038" />
+		<Motherboard href="0x60AD0040" />
+	</Region>
+	<Region id="0x616E0002" TriggerLpGbts="16" DaqLpGbts="9" DaqRate="8.79" TCcount="111">
+		<Motherboard href="0x60AE0000" />
+		<Motherboard href="0x60AE0008" />
+		<Motherboard href="0x60AE0010" />
+		<Motherboard href="0x60AE0018" />
+		<Motherboard href="0x60AE0020" />
+		<Motherboard href="0x60AE0028" />
+		<Motherboard href="0x60AE0030" />
+		<Motherboard href="0x60AE0038" />
+		<Motherboard href="0x60AE0040" />
+	</Region>
+	<Region id="0x616F0002" TriggerLpGbts="16" DaqLpGbts="9" DaqRate="8.73" TCcount="111">
+		<Motherboard href="0x60AF0000" />
+		<Motherboard href="0x60AF0008" />
+		<Motherboard href="0x60AF0010" />
+		<Motherboard href="0x60AF0018" />
+		<Motherboard href="0x60AF0020" />
+		<Motherboard href="0x60AF0028" />
+		<Motherboard href="0x60AF0030" />
+		<Motherboard href="0x60AF0038" />
+		<Motherboard href="0x60AF0040" />
+	</Region>
+	<Region id="0x61620004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="2.40" TCcount="72">
+		<Motherboard href="0x60A29C40" />
+		<Motherboard href="0x60A29C48" />
+		<Motherboard href="0x60A29C50" />
+		<Motherboard href="0x60A29F60" />
+		<Motherboard href="0x60A29F68" />
+		<Motherboard href="0x60A29F70" />
+		<Motherboard href="0x60A2A280" />
+		<Motherboard href="0x60A2A288" />
+		<Motherboard href="0x60A2A290" />
+		<Motherboard href="0x60A2A5A0" />
+		<Motherboard href="0x60A2A5A8" />
+		<Motherboard href="0x60A2A5B0" />
+	</Region>
+	<Region id="0x61630004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="2.40" TCcount="96">
+		<Motherboard href="0x60A39C40" />
+		<Motherboard href="0x60A39C48" />
+		<Motherboard href="0x60A39C50" />
+		<Motherboard href="0x60A39F60" />
+		<Motherboard href="0x60A39F68" />
+		<Motherboard href="0x60A39F70" />
+		<Motherboard href="0x60A3A280" />
+		<Motherboard href="0x60A3A288" />
+		<Motherboard href="0x60A3A290" />
+		<Motherboard href="0x60A3A5A0" />
+		<Motherboard href="0x60A3A5A8" />
+		<Motherboard href="0x60A3A5B0" />
+	</Region>
+	<Region id="0x61640004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="2.40" TCcount="96">
+		<Motherboard href="0x60A49C40" />
+		<Motherboard href="0x60A49C48" />
+		<Motherboard href="0x60A49C50" />
+		<Motherboard href="0x60A49F60" />
+		<Motherboard href="0x60A49F68" />
+		<Motherboard href="0x60A49F70" />
+		<Motherboard href="0x60A4A280" />
+		<Motherboard href="0x60A4A288" />
+		<Motherboard href="0x60A4A290" />
+		<Motherboard href="0x60A4A5A0" />
+		<Motherboard href="0x60A4A5A8" />
+		<Motherboard href="0x60A4A5B0" />
+	</Region>
+	<Region id="0x61650004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="2.40" TCcount="96">
+		<Motherboard href="0x60A59C40" />
+		<Motherboard href="0x60A59C48" />
+		<Motherboard href="0x60A59C50" />
+		<Motherboard href="0x60A59F60" />
+		<Motherboard href="0x60A59F68" />
+		<Motherboard href="0x60A59F70" />
+		<Motherboard href="0x60A5A280" />
+		<Motherboard href="0x60A5A288" />
+		<Motherboard href="0x60A5A290" />
+		<Motherboard href="0x60A5A5A0" />
+		<Motherboard href="0x60A5A5A8" />
+		<Motherboard href="0x60A5A5B0" />
+	</Region>
+	<Region id="0x61660004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="168">
+		<Motherboard href="0x60A69C40" />
+		<Motherboard href="0x60A69C48" />
+		<Motherboard href="0x60A69C50" />
+		<Motherboard href="0x60A69F60" />
+		<Motherboard href="0x60A69F68" />
+		<Motherboard href="0x60A69F70" />
+		<Motherboard href="0x60A6A280" />
+		<Motherboard href="0x60A6A288" />
+		<Motherboard href="0x60A6A290" />
+		<Motherboard href="0x60A6A5A0" />
+		<Motherboard href="0x60A6A5A8" />
+		<Motherboard href="0x60A6A5B0" />
+	</Region>
+	<Region id="0x61670004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="168">
+		<Motherboard href="0x60A79C40" />
+		<Motherboard href="0x60A79C48" />
+		<Motherboard href="0x60A79C50" />
+		<Motherboard href="0x60A79F60" />
+		<Motherboard href="0x60A79F68" />
+		<Motherboard href="0x60A79F70" />
+		<Motherboard href="0x60A7A280" />
+		<Motherboard href="0x60A7A288" />
+		<Motherboard href="0x60A7A290" />
+		<Motherboard href="0x60A7A5A0" />
+		<Motherboard href="0x60A7A5A8" />
+		<Motherboard href="0x60A7A5B0" />
+	</Region>
+	<Region id="0x61680004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="216">
+		<Motherboard href="0x60A89C40" />
+		<Motherboard href="0x60A89C48" />
+		<Motherboard href="0x60A89C50" />
+		<Motherboard href="0x60A89F60" />
+		<Motherboard href="0x60A89F68" />
+		<Motherboard href="0x60A89F70" />
+		<Motherboard href="0x60A8A280" />
+		<Motherboard href="0x60A8A288" />
+		<Motherboard href="0x60A8A290" />
+		<Motherboard href="0x60A8A5A0" />
+		<Motherboard href="0x60A8A5A8" />
+		<Motherboard href="0x60A8A5B0" />
+	</Region>
+	<Region id="0x61690004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="216">
+		<Motherboard href="0x60A99C40" />
+		<Motherboard href="0x60A99C48" />
+		<Motherboard href="0x60A99C50" />
+		<Motherboard href="0x60A99F60" />
+		<Motherboard href="0x60A99F68" />
+		<Motherboard href="0x60A99F70" />
+		<Motherboard href="0x60A9A280" />
+		<Motherboard href="0x60A9A288" />
+		<Motherboard href="0x60A9A290" />
+		<Motherboard href="0x60A9A5A0" />
+		<Motherboard href="0x60A9A5A8" />
+		<Motherboard href="0x60A9A5B0" />
+	</Region>
+	<Region id="0x616A0004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="216">
+		<Motherboard href="0x60AA9C40" />
+		<Motherboard href="0x60AA9C48" />
+		<Motherboard href="0x60AA9C50" />
+		<Motherboard href="0x60AA9F60" />
+		<Motherboard href="0x60AA9F68" />
+		<Motherboard href="0x60AA9F70" />
+		<Motherboard href="0x60AAA280" />
+		<Motherboard href="0x60AAA288" />
+		<Motherboard href="0x60AAA290" />
+		<Motherboard href="0x60AAA5A0" />
+		<Motherboard href="0x60AAA5A8" />
+		<Motherboard href="0x60AAA5B0" />
+	</Region>
+	<Region id="0x616B0004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="4.80" TCcount="216">
+		<Motherboard href="0x60AB9C40" />
+		<Motherboard href="0x60AB9C48" />
+		<Motherboard href="0x60AB9C50" />
+		<Motherboard href="0x60AB9F60" />
+		<Motherboard href="0x60AB9F68" />
+		<Motherboard href="0x60AB9F70" />
+		<Motherboard href="0x60ABA280" />
+		<Motherboard href="0x60ABA288" />
+		<Motherboard href="0x60ABA290" />
+		<Motherboard href="0x60ABA5A0" />
+		<Motherboard href="0x60ABA5A8" />
+		<Motherboard href="0x60ABA5B0" />
+	</Region>
+	<Region id="0x616C0004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="6.00" TCcount="264">
+		<Motherboard href="0x60AC9C40" />
+		<Motherboard href="0x60AC9C48" />
+		<Motherboard href="0x60AC9C50" />
+		<Motherboard href="0x60AC9F60" />
+		<Motherboard href="0x60AC9F68" />
+		<Motherboard href="0x60AC9F70" />
+		<Motherboard href="0x60ACA280" />
+		<Motherboard href="0x60ACA288" />
+		<Motherboard href="0x60ACA290" />
+		<Motherboard href="0x60ACA5A0" />
+		<Motherboard href="0x60ACA5A8" />
+		<Motherboard href="0x60ACA5B0" />
+	</Region>
+	<Region id="0x616D0004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="6.00" TCcount="264">
+		<Motherboard href="0x60AD9C40" />
+		<Motherboard href="0x60AD9C48" />
+		<Motherboard href="0x60AD9C50" />
+		<Motherboard href="0x60AD9F60" />
+		<Motherboard href="0x60AD9F68" />
+		<Motherboard href="0x60AD9F70" />
+		<Motherboard href="0x60ADA280" />
+		<Motherboard href="0x60ADA288" />
+		<Motherboard href="0x60ADA290" />
+		<Motherboard href="0x60ADA5A0" />
+		<Motherboard href="0x60ADA5A8" />
+		<Motherboard href="0x60ADA5B0" />
+	</Region>
+	<Region id="0x616E0004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="6.00" TCcount="264">
+		<Motherboard href="0x60AE9C40" />
+		<Motherboard href="0x60AE9C48" />
+		<Motherboard href="0x60AE9C50" />
+		<Motherboard href="0x60AE9F60" />
+		<Motherboard href="0x60AE9F68" />
+		<Motherboard href="0x60AE9F70" />
+		<Motherboard href="0x60AEA280" />
+		<Motherboard href="0x60AEA288" />
+		<Motherboard href="0x60AEA290" />
+		<Motherboard href="0x60AEA5A0" />
+		<Motherboard href="0x60AEA5A8" />
+		<Motherboard href="0x60AEA5B0" />
+	</Region>
+	<Region id="0x616F0004" TriggerLpGbts="12" DaqLpGbts="12" DaqRate="6.00" TCcount="264">
+		<Motherboard href="0x60AF9C40" />
+		<Motherboard href="0x60AF9C48" />
+		<Motherboard href="0x60AF9C50" />
+		<Motherboard href="0x60AF9F60" />
+		<Motherboard href="0x60AF9F68" />
+		<Motherboard href="0x60AF9F70" />
+		<Motherboard href="0x60AFA280" />
+		<Motherboard href="0x60AFA288" />
+		<Motherboard href="0x60AFA290" />
+		<Motherboard href="0x60AFA5A0" />
+		<Motherboard href="0x60AFA5A8" />
+		<Motherboard href="0x60AFA5B0" />
+	</Region>
+	<Region id="0x61420006" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="106.27" TCcount="None">
+		<Motherboard href="0x60820000" />
+		<Motherboard href="0x60820008" />
+		<Motherboard href="0x60820010" />
+		<Motherboard href="0x60820018" />
+		<Motherboard href="0x60820020" />
+		<Motherboard href="0x60820028" />
+		<Motherboard href="0x60820030" />
+		<Motherboard href="0x60820038" />
+		<Motherboard href="0x60820040" />
+		<Motherboard href="0x60820048" />
+		<Motherboard href="0x60820050" />
+		<Motherboard href="0x60820058" />
+		<Motherboard href="0x60820320" />
+		<Motherboard href="0x60820328" />
+		<Motherboard href="0x60820330" />
+		<Motherboard href="0x60820338" />
+		<Motherboard href="0x60820340" />
+		<Motherboard href="0x60820348" />
+		<Motherboard href="0x60820350" />
+		<Motherboard href="0x60820358" />
+		<Motherboard href="0x60820360" />
+		<Motherboard href="0x60820368" />
+		<Motherboard href="0x60820370" />
+		<Motherboard href="0x60820378" />
+	</Region>
+	<Region id="0x61440006" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="109.70" TCcount="None">
+		<Motherboard href="0x60840000" />
+		<Motherboard href="0x60840008" />
+		<Motherboard href="0x60840010" />
+		<Motherboard href="0x60840018" />
+		<Motherboard href="0x60840020" />
+		<Motherboard href="0x60840028" />
+		<Motherboard href="0x60840030" />
+		<Motherboard href="0x60840038" />
+		<Motherboard href="0x60840040" />
+		<Motherboard href="0x60840048" />
+		<Motherboard href="0x60840050" />
+		<Motherboard href="0x60840058" />
+		<Motherboard href="0x60840320" />
+		<Motherboard href="0x60840328" />
+		<Motherboard href="0x60840330" />
+		<Motherboard href="0x60840338" />
+		<Motherboard href="0x60840340" />
+		<Motherboard href="0x60840348" />
+		<Motherboard href="0x60840350" />
+		<Motherboard href="0x60840358" />
+		<Motherboard href="0x60840360" />
+		<Motherboard href="0x60840368" />
+		<Motherboard href="0x60840370" />
+		<Motherboard href="0x60840378" />
+	</Region>
+	<Region id="0x61460006" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="104.47" TCcount="None">
+		<Motherboard href="0x60860000" />
+		<Motherboard href="0x60860008" />
+		<Motherboard href="0x60860010" />
+		<Motherboard href="0x60860018" />
+		<Motherboard href="0x60860020" />
+		<Motherboard href="0x60860028" />
+		<Motherboard href="0x60860030" />
+		<Motherboard href="0x60860038" />
+		<Motherboard href="0x60860040" />
+		<Motherboard href="0x60860048" />
+		<Motherboard href="0x60860050" />
+		<Motherboard href="0x60860058" />
+		<Motherboard href="0x60860320" />
+		<Motherboard href="0x60860328" />
+		<Motherboard href="0x60860330" />
+		<Motherboard href="0x60860338" />
+		<Motherboard href="0x60860340" />
+		<Motherboard href="0x60860348" />
+		<Motherboard href="0x60860350" />
+		<Motherboard href="0x60860358" />
+		<Motherboard href="0x60860360" />
+		<Motherboard href="0x60860368" />
+		<Motherboard href="0x60860370" />
+		<Motherboard href="0x60860378" />
+	</Region>
+	<Region id="0x61480006" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="94.20" TCcount="None">
+		<Motherboard href="0x60880000" />
+		<Motherboard href="0x60880008" />
+		<Motherboard href="0x60880010" />
+		<Motherboard href="0x60880018" />
+		<Motherboard href="0x60880020" />
+		<Motherboard href="0x60880028" />
+		<Motherboard href="0x60880030" />
+		<Motherboard href="0x60880038" />
+		<Motherboard href="0x60880040" />
+		<Motherboard href="0x60880048" />
+		<Motherboard href="0x60880050" />
+		<Motherboard href="0x60880058" />
+		<Motherboard href="0x60880320" />
+		<Motherboard href="0x60880328" />
+		<Motherboard href="0x60880330" />
+		<Motherboard href="0x60880338" />
+		<Motherboard href="0x60880340" />
+		<Motherboard href="0x60880348" />
+		<Motherboard href="0x60880350" />
+		<Motherboard href="0x60880358" />
+		<Motherboard href="0x60880360" />
+		<Motherboard href="0x60880368" />
+		<Motherboard href="0x60880370" />
+		<Motherboard href="0x60880378" />
+	</Region>
+	<Region id="0x614A0006" TriggerLpGbts="0" DaqLpGbts="30" DaqRate="85.52" TCcount="None">
+		<Motherboard href="0x608A0000" />
+		<Motherboard href="0x608A0008" />
+		<Motherboard href="0x608A0010" />
+		<Motherboard href="0x608A0018" />
+		<Motherboard href="0x608A0020" />
+		<Motherboard href="0x608A0028" />
+		<Motherboard href="0x608A0030" />
+		<Motherboard href="0x608A0038" />
+		<Motherboard href="0x608A0040" />
+		<Motherboard href="0x608A0048" />
+		<Motherboard href="0x608A0050" />
+		<Motherboard href="0x608A0058" />
+		<Motherboard href="0x608A0320" />
+		<Motherboard href="0x608A0328" />
+		<Motherboard href="0x608A0330" />
+		<Motherboard href="0x608A0338" />
+		<Motherboard href="0x608A0340" />
+		<Motherboard href="0x608A0348" />
+		<Motherboard href="0x608A0350" />
+		<Motherboard href="0x608A0358" />
+		<Motherboard href="0x608A0360" />
+		<Motherboard href="0x608A0368" />
+		<Motherboard href="0x608A0370" />
+		<Motherboard href="0x608A0378" />
+	</Region>
+	<Region id="0x614C0006" TriggerLpGbts="0" DaqLpGbts="28" DaqRate="77.67" TCcount="None">
+		<Motherboard href="0x608C0000" />
+		<Motherboard href="0x608C0010" />
+		<Motherboard href="0x608C0018" />
+		<Motherboard href="0x608C0020" />
+		<Motherboard href="0x608C0028" />
+		<Motherboard href="0x608C0030" />
+		<Motherboard href="0x608C0038" />
+		<Motherboard href="0x608C0040" />
+		<Motherboard href="0x608C0048" />
+		<Motherboard href="0x608C0050" />
+		<Motherboard href="0x608C0058" />
+		<Motherboard href="0x608C0060" />
+		<Motherboard href="0x608C0320" />
+		<Motherboard href="0x608C0330" />
+		<Motherboard href="0x608C0338" />
+		<Motherboard href="0x608C0340" />
+		<Motherboard href="0x608C0348" />
+		<Motherboard href="0x608C0350" />
+		<Motherboard href="0x608C0358" />
+		<Motherboard href="0x608C0360" />
+		<Motherboard href="0x608C0368" />
+		<Motherboard href="0x608C0370" />
+		<Motherboard href="0x608C0378" />
+		<Motherboard href="0x608C0380" />
+	</Region>
+	<Region id="0x614E0006" TriggerLpGbts="0" DaqLpGbts="26" DaqRate="72.28" TCcount="None">
+		<Motherboard href="0x608E0000" />
+		<Motherboard href="0x608E0008" />
+		<Motherboard href="0x608E0010" />
+		<Motherboard href="0x608E0018" />
+		<Motherboard href="0x608E0020" />
+		<Motherboard href="0x608E0028" />
+		<Motherboard href="0x608E0030" />
+		<Motherboard href="0x608E0038" />
+		<Motherboard href="0x608E0040" />
+		<Motherboard href="0x608E0048" />
+		<Motherboard href="0x608E0050" />
+		<Motherboard href="0x608E0058" />
+		<Motherboard href="0x608E0320" />
+		<Motherboard href="0x608E0328" />
+		<Motherboard href="0x608E0330" />
+		<Motherboard href="0x608E0338" />
+		<Motherboard href="0x608E0340" />
+		<Motherboard href="0x608E0348" />
+		<Motherboard href="0x608E0350" />
+		<Motherboard href="0x608E0358" />
+		<Motherboard href="0x608E0360" />
+		<Motherboard href="0x608E0368" />
+		<Motherboard href="0x608E0370" />
+		<Motherboard href="0x608E0378" />
+	</Region>
+	<Region id="0x61500006" TriggerLpGbts="0" DaqLpGbts="26" DaqRate="68.92" TCcount="None">
+		<Motherboard href="0x60900000" />
+		<Motherboard href="0x60900008" />
+		<Motherboard href="0x60900010" />
+		<Motherboard href="0x60900018" />
+		<Motherboard href="0x60900020" />
+		<Motherboard href="0x60900028" />
+		<Motherboard href="0x60900030" />
+		<Motherboard href="0x60900038" />
+		<Motherboard href="0x60900040" />
+		<Motherboard href="0x60900048" />
+		<Motherboard href="0x60900050" />
+		<Motherboard href="0x60900058" />
+		<Motherboard href="0x60900320" />
+		<Motherboard href="0x60900328" />
+		<Motherboard href="0x60900330" />
+		<Motherboard href="0x60900338" />
+		<Motherboard href="0x60900340" />
+		<Motherboard href="0x60900348" />
+		<Motherboard href="0x60900350" />
+		<Motherboard href="0x60900358" />
+		<Motherboard href="0x60900360" />
+		<Motherboard href="0x60900368" />
+		<Motherboard href="0x60900370" />
+		<Motherboard href="0x60900378" />
+	</Region>
+	<Region id="0x61520006" TriggerLpGbts="0" DaqLpGbts="26" DaqRate="66.07" TCcount="None">
+		<Motherboard href="0x60920000" />
+		<Motherboard href="0x60920008" />
+		<Motherboard href="0x60920010" />
+		<Motherboard href="0x60920018" />
+		<Motherboard href="0x60920020" />
+		<Motherboard href="0x60920028" />
+		<Motherboard href="0x60920030" />
+		<Motherboard href="0x60920038" />
+		<Motherboard href="0x60920040" />
+		<Motherboard href="0x60920048" />
+		<Motherboard href="0x60920050" />
+		<Motherboard href="0x60920058" />
+		<Motherboard href="0x60920320" />
+		<Motherboard href="0x60920328" />
+		<Motherboard href="0x60920330" />
+		<Motherboard href="0x60920338" />
+		<Motherboard href="0x60920340" />
+		<Motherboard href="0x60920348" />
+		<Motherboard href="0x60920350" />
+		<Motherboard href="0x60920358" />
+		<Motherboard href="0x60920360" />
+		<Motherboard href="0x60920368" />
+		<Motherboard href="0x60920370" />
+		<Motherboard href="0x60920378" />
+	</Region>
+	<Region id="0x61540006" TriggerLpGbts="0" DaqLpGbts="24" DaqRate="63.34" TCcount="None">
+		<Motherboard href="0x60940000" />
+		<Motherboard href="0x60940008" />
+		<Motherboard href="0x60940010" />
+		<Motherboard href="0x60940018" />
+		<Motherboard href="0x60940020" />
+		<Motherboard href="0x60940028" />
+		<Motherboard href="0x60940030" />
+		<Motherboard href="0x60940038" />
+		<Motherboard href="0x60940040" />
+		<Motherboard href="0x60940048" />
+		<Motherboard href="0x60940050" />
+		<Motherboard href="0x60940058" />
+		<Motherboard href="0x60940320" />
+		<Motherboard href="0x60940328" />
+		<Motherboard href="0x60940330" />
+		<Motherboard href="0x60940338" />
+		<Motherboard href="0x60940340" />
+		<Motherboard href="0x60940348" />
+		<Motherboard href="0x60940350" />
+		<Motherboard href="0x60940358" />
+		<Motherboard href="0x60940360" />
+		<Motherboard href="0x60940368" />
+		<Motherboard href="0x60940370" />
+		<Motherboard href="0x60940378" />
+	</Region>
+	<Region id="0x61560006" TriggerLpGbts="0" DaqLpGbts="24" DaqRate="61.10" TCcount="None">
+		<Motherboard href="0x60960000" />
+		<Motherboard href="0x60960008" />
+		<Motherboard href="0x60960010" />
+		<Motherboard href="0x60960018" />
+		<Motherboard href="0x60960020" />
+		<Motherboard href="0x60960028" />
+		<Motherboard href="0x60960030" />
+		<Motherboard href="0x60960038" />
+		<Motherboard href="0x60960040" />
+		<Motherboard href="0x60960048" />
+		<Motherboard href="0x60960050" />
+		<Motherboard href="0x60960058" />
+		<Motherboard href="0x60960320" />
+		<Motherboard href="0x60960328" />
+		<Motherboard href="0x60960330" />
+		<Motherboard href="0x60960338" />
+		<Motherboard href="0x60960340" />
+		<Motherboard href="0x60960348" />
+		<Motherboard href="0x60960350" />
+		<Motherboard href="0x60960358" />
+		<Motherboard href="0x60960360" />
+		<Motherboard href="0x60960368" />
+		<Motherboard href="0x60960370" />
+		<Motherboard href="0x60960378" />
+	</Region>
+	<Region id="0x61580006" TriggerLpGbts="0" DaqLpGbts="24" DaqRate="60.34" TCcount="None">
+		<Motherboard href="0x60980000" />
+		<Motherboard href="0x60980008" />
+		<Motherboard href="0x60980010" />
+		<Motherboard href="0x60980018" />
+		<Motherboard href="0x60980020" />
+		<Motherboard href="0x60980028" />
+		<Motherboard href="0x60980030" />
+		<Motherboard href="0x60980038" />
+		<Motherboard href="0x60980040" />
+		<Motherboard href="0x60980048" />
+		<Motherboard href="0x60980050" />
+		<Motherboard href="0x60980058" />
+		<Motherboard href="0x60980320" />
+		<Motherboard href="0x60980328" />
+		<Motherboard href="0x60980330" />
+		<Motherboard href="0x60980338" />
+		<Motherboard href="0x60980340" />
+		<Motherboard href="0x60980348" />
+		<Motherboard href="0x60980350" />
+		<Motherboard href="0x60980358" />
+		<Motherboard href="0x60980360" />
+		<Motherboard href="0x60980368" />
+		<Motherboard href="0x60980370" />
+		<Motherboard href="0x60980378" />
+	</Region>
+	<Region id="0x615A0006" TriggerLpGbts="0" DaqLpGbts="24" DaqRate="58.37" TCcount="None">
+		<Motherboard href="0x609A0000" />
+		<Motherboard href="0x609A0008" />
+		<Motherboard href="0x609A0010" />
+		<Motherboard href="0x609A0018" />
+		<Motherboard href="0x609A0020" />
+		<Motherboard href="0x609A0028" />
+		<Motherboard href="0x609A0030" />
+		<Motherboard href="0x609A0038" />
+		<Motherboard href="0x609A0040" />
+		<Motherboard href="0x609A0048" />
+		<Motherboard href="0x609A0050" />
+		<Motherboard href="0x609A0058" />
+		<Motherboard href="0x609A0320" />
+		<Motherboard href="0x609A0328" />
+		<Motherboard href="0x609A0330" />
+		<Motherboard href="0x609A0338" />
+		<Motherboard href="0x609A0340" />
+		<Motherboard href="0x609A0348" />
+		<Motherboard href="0x609A0350" />
+		<Motherboard href="0x609A0358" />
+		<Motherboard href="0x609A0360" />
+		<Motherboard href="0x609A0368" />
+		<Motherboard href="0x609A0370" />
+		<Motherboard href="0x609A0378" />
+	</Region>
 </Regions>

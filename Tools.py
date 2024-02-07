@@ -14,67 +14,43 @@ colors = {0  : 'white',
           2  : 'orange',
           3 : 'yellow'}
 
-# Define a class to represent the Region objects
 class Region:
-    def __init__(self, id, section, plane, ud, lr, TriggerLpGbts, DaqLpGbts, DaqRate, TCcount, Motherboards):
+    def __init__(self, id, Motherboards):
         self.id = id
-        self.section = section
-        self.plane = plane
-        self.ud = ud
-        self.lr = lr
-        self.TriggerLpGbts = TriggerLpGbts
-        self.DaqLpGbts = DaqLpGbts
-        self.DaqRate = DaqRate
-        self.TCcount = TCcount
         self.MBs = Motherboards
 
 def read_regions_xml_file():
     # Parse the XML file content
-    tree = ET.parse("../xml/Regions.120.NoSplit.xml")
+    tree = ET.parse("xml/Regions.120.NoSplit.xml")
     root = tree.getroot()
 
     # Create Region objects for each Region element
     regions = []
     for region_elem in root.findall(".//Region"):
         id = region_elem.get("id")
-        section = region_elem.get("section")
-        plane = region_elem.get("plane")
-        ud = region_elem.get("ud")
-        lr = region_elem.get("lr")
-        TriggerLpGbts = region_elem.get("TriggerLpGbts")
-        DaqLpGbts = region_elem.get("DaqLpGbts")
-        DaqRate = region_elem.get("DaqRate")
-        TCcount = region_elem.get("TCcount")
-        Motherboards = region_elem.get("Motherboards")
+        Motherboards = []
+        for motherboard_element in region_elem.findall('Motherboard'):
+            Motherboards.append(motherboard_element.get('href'))
 
-        region = Region(id, section, plane, ud, lr, TriggerLpGbts, DaqLpGbts, DaqRate, TCcount, Motherboards)
+        region = Region(id, Motherboards)
         regions.append(region)
     return regions
 
 def get_modules_per_S1(regions):
     all_regions = read_regions_xml_file()
-    geometry_file = '../xml/Geometry.xml'
+    geometry_file = 'xml/Geometry.xml'
     geometry = extract_module_info_from_xml(geometry_file)
 
     modules = 0
     for region in regions:
-        #if region.lr =='0': continue
         print(f"Region ID: {region}")
         MB_ids_for_region = get_MB_ids(all_regions, region)
 
         df_region = pd.DataFrame(columns=['MB', 'plane'])
         for MB_id in MB_ids_for_region:
-            MB, plane = extract_MB_plane_from_MBid(MB_id)
-            # assert plane != region.plane, f"Planes from region and from MBs are different ({region.plane}, {plane})."
-
-            df_region = df_region.append({'MB': MB, 'plane': plane}, ignore_index=True)
+            modules += len(geometry[geometry.MB == MB_id]['Module'])
      
-        modmap_region = pd.merge(df_region, geometry, on=['plane', 'MB'])
-        modules += modmap_region.shape[0]
-
     return modules
-#    scatter, annotations = plot_modules(modmap_region, 'MB')
-#    set_figure(scatter, annotations, region.plane, region.section)
 
 def create_sector(center, start_angle, end_angle, radius, steps=2):
     def polar_point(origin_point, angle,  distance):
@@ -124,20 +100,20 @@ def extract_data(tree, geometry_file):
                 MB = frame.get('Motherboard')
                 if module:
                     data_list_si.append({
-                        'Module': str(int(frame.get('Module'))),
-                        'idx': int(frame.get('index')),
-                        'Column': int(frame.get('column')),
-                        'Frame':  int(frame.get('id')),
-                        'S1': s1.get('id'),
+                        'Module' : frame.get('Module'),
+                        'idx'    : int(frame.get('index')),
+                        'Column' : int(frame.get('column')),
+                        'Frame'  : int(frame.get('id')),
+                        'S1'     : s1.get('id'),
                         'Channel': channel.get('id'),
                     })
-                if MB:
+                elif MB:
                     data_list_sci.append({
-                        'MB': int(frame.get('Motherboard'),16),
-                        'idx': int(frame.get('index')),
-                        'Column': int(frame.get('column')),
-                        'Frame':  int(frame.get('id')),
-                        'S1': s1.get('id'),
+                        'MB'     : frame.get('Motherboard'),
+                        'idx'    : int(frame.get('index')),
+                        'Column' : int(frame.get('column')),
+                        'Frame'  : int(frame.get('id')),
+                        'S1'     : s1.get('id'),
                         'Channel': channel.get('id'),
                     })
                 else:
@@ -145,12 +121,14 @@ def extract_data(tree, geometry_file):
 
     # adding additional information using geometry xml
     geometry = extract_module_info_from_xml(geometry_file)
-   
+  
     df_si  = pd.merge(pd.DataFrame(data_list_si),  geometry, on='Module', how='inner')
-    df_sci = pd.merge(pd.DataFrame(data_list_sci), geometry, on='MB', how='inner')
+    df_sci = pd.merge(pd.DataFrame(data_list_sci), geometry.drop_duplicates('MB'), on='MB', how='inner')
     
-    df = pd.concat([df_si, df_sci])
-    df['phi'] = phi_calculator(df)
+    df = {}
+    df['si'], df['sci'] = df_si, df_sci
+    
+    #df['phi'] = phi_calculator(df)
     return df
 
 def create_slices(radius, total_angle_degrees=120, offset=0):
@@ -172,8 +150,7 @@ def get_MB_ids(regions, region):
     MB_ids = []
 
     region_class = [_region for _region in regions if _region.id == region][0]
-    MB_ids.extend(region_class.MBs.split(';'))
-    return MB_ids
+    return region_class.MBs
 
 def extract_MB_plane_from_MBid(id):
     id_int = int(id, 16) # hexadecimal 'id' to integer
@@ -242,8 +219,8 @@ def extract_module_info_from_xml(xml_file):
             for module in motherboard.findall(".//Module"):
                 data_list.append({
                     'plane' : plane_id,
-                    'Module': str(int(module.get('id'))),
-                    'MB'    : int(motherboard.get('id'),16), #extract_MB_plane_from_MBid(motherboard.get('id'))[0],
+                    'Module': module.get('id'),
+                    'MB'    : motherboard.get('id'), #extract_MB_plane_from_MBid(motherboard.get('id'))[0],
                     'u'     : int(module.get('u')),
                     'v'     : int(module.get('v')),
                     'hex_x' : list(float(x.split(',')[0]) for x in module.get('Vertices').split(';')),
